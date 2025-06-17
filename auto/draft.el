@@ -5,15 +5,15 @@
                      '(("revtex4-2" "reprint" "aps" "prx" "amsmath" "amssymb" "longbibliography" "superscriptaddress")))
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("subfig" "caption=false") ("hyperref" "bookmarks=true" "colorlinks=true" "linkcolor=blue" "urlcolor=blue" "citecolor=blue" "hyperindex=true")))
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "href")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "setfloatlink")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "homepage")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "email")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "email")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "homepage")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "setfloatlink")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "href")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
    (TeX-run-style-hooks
     "latex2e"
@@ -23,6 +23,7 @@
     "epsfig"
     "mathrsfs"
     "esint"
+    "physics"
     "relsize"
     "dsfont"
     "comment"
@@ -32,7 +33,13 @@
    (TeX-add-symbols
     '("dl" 1)
     '("al" 1)
-    '("jk" 1))
+    '("jk" 1)
+    "Zn"
+    "Zthree"
+    "Ztwo"
+    "Id"
+    "diag"
+    "sgn")
    (LaTeX-add-labels
     "physical-implementation"
     "physical-hamiltonian"
