@@ -92,90 +92,144 @@ In the remainder of the manuscript we proceed as follows. In Sec.~II, we introdu
 
 
 
-\section{Physical implementation}
+\section{$\Zthree$ Rabi model.}
 
 
-\subsection{Qubit-boson ring}
+\subsection{Qubit--boson ring}
 \label{physical-implementation}
 
+In this section we demonstrate how the two--mode $\Zthree$ Rabi model emerges
+in the single--excitation sector of a three--site qubit--boson (QB) ring with
+nearest--neighbour coupling.  Superconducting and optomechanical
+implementations are briefly commented on, while a compact derivation for a
+general interaction matrix is deferred to
+Sec.~\ref{arbitrary-interaction-summary}.  Throughout we follow the notation of the
+main text and retain only the steps essential for the specific form of the
+interaction.
 
-In this section, we realize the $\Zthree$ Rabi model in the single-excitation sector of a three-site qubit-boson ring (QB ring) with a specific qubit-boson interaction described below. We illustrate this on superconducting circuits and an optomechanical setup. The  Hamiltonian of the QB ring is given by
+The QB ring Hamiltonian is
 \begin{equation}
 \label{physical-hamiltonian}
   \begin{aligned}
-    \hat H_{QB} &= \epsilon \sum\limits_{j=0}^2 \sigma_j^z + \Omega_{QB} \sum\limits_{j=0}^2  \hat a_j^{\dagger} \hat a_j + \hat V_{QB},  \\
-    \hat V_{QB} &= g \sum\limits_{j=0}^2 \left( \sigma_j^+ \sigma_{j+1}^- e^{i (\hat x_j - \hat x_{j+1})}  + \text{h.c.} \right).
+    \hat H_{\text{QB}} &= \epsilon \sum_{j=0}^{2} \sigma_j^z
+      + \Omega_{\text{QB}} \sum_{j=0}^{2} \hat a_j^{\dagger} \hat a_j
+      + \hat V_{\text{QB}},
+      \\
+    \hat V_{\text{QB}} &= g \sum_{j=0}^{2}
+      \bigl( \sigma_j^{+} \sigma_{j+1}^{-}
+      e^{ i ( \hat x_j - \hat x_{j+1} ) } + \text{h.c.} \bigr),
   \end{aligned}
 \end{equation}
-In this section we are giving a short description of the correspondence between the qubit-boson ring (\ref{physical-hamiltonian}) and the 2-mode Rabi model $\hat H_{\text{R}2}$ (\ref{2-mode-Z3-Rabi}). For a detailed discussion, we refer the reader to App. \ref{arbitrary-interaction}.
-
-Here we use the standard definition for the creation/annihilation operators:
+where $\Omega_{\text{QB}}$ is the boson frequency and $m_{\text{QB}}$ the
+effective mass.  Creation and annihilation operators are defined in the usual
+way,
 \begin{equation}
-    \hat a_j = \sqrt{\frac{m_{QB}\Omega_{QB}}{2}} \hat x_j + i \sqrt{\frac{1}{2 m_{QB} \Omega_{QB}}} \hat p_j,
+  \hat a_j = \sqrt{\frac{m_{\text{QB}} \Omega_{\text{QB}}}{2}}\, \hat x_j
+           + i \sqrt{ \frac{1}{2 m_{\text{QB}} \Omega_{\text{QB}}} }\, \hat p_j.
 \end{equation}
-where $\Omega_{QB}$ is the boson frequency and $m_{QB}$ is the mass. It is a variant of the Hamiltonian considered in \cite{sedov_chiral_2020}.
+This is a variant of the model studied in
+Ref.~\cite{sedov_chiral_2020}.
 
-The Hamiltonian (\ref{physical-hamiltonian}) commutes with the $z$‑component of the total spin $\hat S^z = \sum_i \sigma_i^z$. Consequently, we consider the restriction of $\hat H_{QB}$ to the sector with a single spin being up (and the rest being down) $\mathcal{H}_{QB,1}$ (detailed discussion in App. \ref{arbitrary-interaction}). That is the sector described by the $\Zthree$ Rabi model.
+Because $[ \hat H_{\text{QB}}, \hat S^z ] = 0$ with $\hat S^z = \sum_j
+\sigma_j^z$, the number of spin excitations is conserved.  We therefore focus
+on the single--excitation subspace
+\begin{equation}
+  \mathcal H_{\text{QB},1} = \operatorname{Span}\bigl\{ |
+    \uparrow\downarrow\downarrow\rangle,
+    |\downarrow\uparrow\downarrow\rangle,
+    |\downarrow\downarrow\uparrow\rangle \bigr\}.
+\end{equation}
 
-However, first we need to transform the Hamiltonian (\ref{physical-hamiltonian}) to a more convenient form. To begin with, we apply the momentum-translation operator $S = \prod_j \exp[i \sigma_j^z \hat x_j/2]$ to eliminate the exponential interaction term $\hat V $. As a result, we obtain
+\paragraph{Spin--dependent momentum translation.}
+Applying the unitary operator
+$S = \prod_j e^{ i \sigma_j^z \hat x_j / 2 }$ removes the exponentials in
+$\hat V_{\text{QB}}$ and yields
 \begin{equation}
 \label{after-momentum-translation}
-\begin{aligned}
-    S^{-1} \hat H_{QB} S =& \epsilon \sum\limits_{j=0}^2 \sigma_j^z + \Omega_{QB} \sum\limits_{j=0}^2  \hat a_j^{\dagger} \hat a_j + \frac{1}{2m_{QB}} \sum\limits_{j=0}^2  \hat p_j \sigma_j^z   \\
-    &+\frac{3}{4 m_{QB}} + g\sum\limits_{j=0}^2 \left(\sigma_{j}^+ \sigma_{j+1}^- + \sigma_{j}^- \sigma_{j+1}^+\right).
-\end{aligned}
+  \begin{aligned}
+    S^{-1} \hat H_{\text{QB}} S &= \epsilon \sum_{j} \sigma_j^z
+      + \Omega_{\text{QB}} \sum_j \hat a_j^{\dagger} \hat a_j
+      + \frac{1}{2 m_{\text{QB}}} \sum_j \hat p_j \sigma_j^z
+      \\
+      &\quad + \frac{3}{4 m_{\text{QB}}}
+      + g \sum_{j}
+        \bigl( \sigma_j^{+} \sigma_{j+1}^{-} + \sigma_j^{-} \sigma_{j+1}^{+} \bigr).
+  \end{aligned}
 \end{equation}
+The qubit interaction is now purely spin--spin, at the price of an additional
+spin--boson term proportional to $\hat p_j \sigma_j^z$.
 
-The interaction $\hat V_{QB}$ simplified and turned into a pure qubit term (last term). On the other hand, we obtained a new boson-qubit interaction $ \sum \hat p_j \sigma_j^z $. 
-
-The next step is an application of the Fourier transform to both qubit and boson operators \footnote{We use brackets to denote the Fourier-transformed operators' dependence on the wavevector. On the other hand, for real space operators we use subscripts for their coordinate dependence as usual.}. It is important to note that the Fourier transform maps the sector $\mathcal{H}_1$ onto itself, because $\hat S^z$ is invariant with respect to it. After the restriction to sector $\mathcal{H}_1$, it leads to the decoupling of one of the boson modes and simplifying the qubit operators. This way it simplifies the analysis. However, the term $S^{-1} \hat V S $ is already well-prepared to the restriction to the $\mathcal{H}_1$ sector. Hence, we are leaving it intact:
+\paragraph{Discrete Fourier transform.}
+Introducing momentum--space operators $\hat a(k)$ and spin operators $S^{\pm}(k)$
+via the unitary (type-I) discrete Fourier transform, $\hat a(k)= \tfrac{1}{\sqrt{3}}\sum_{j}e^{-2\pi i jk/3}\hat a_j$ (and analogously for the spins), we
+bring Eq.~\eqref{after-momentum-translation} to
 \begin{equation}
-\begin{aligned}
-    S^{-1} \hat H_{QB} S = &\epsilon \sigma^z(0) + \Omega_{QB} \sum\limits_{k=0}^{2} \hat a^{\dagger}(k) \hat a(k) \\
-    &+ \frac{i}{2}\sqrt{\frac{\Omega_{QB}}{2m_{QB}}} \sum\limits_{k = 0}^{2} \left[-\hat a(k) + \hat a^{\dagger}(-k)\right] \sigma^z(k) \\
-    &+ g \sum\limits_{j=0}^2 \left[\sigma_{j}^+ \sigma_{j+1}^- + \sigma_{j}^- \sigma_{j+1}^+\right] + \frac{3}{4 m_{QB}}.
-\end{aligned}
+\label{after-fourier}
+  \begin{aligned}
+    &\hat H_{\text{FT}} = \epsilon \sum_{k=0}^{2} S^{z}(k)
+      + \Omega_{\text{QB}} \sum_{k=0}^{2} \hat a^{\dagger}(k) \hat a(k)
+                         + \frac{3}{4 m_{\text{QB}}} \\
+     &+\frac{1}{2 m_{\text{QB}}} \sum_{k=0}^{2} \hat p(k) S^{z}(-k)
+            + g \sum_{k=0}^{2} \bigl( S^{+}(k) S^{-}(-k) + \text{h.c.} \bigr),
+  \end{aligned}
 \end{equation}
+which is block-diagonal in the crystal momentum $k$.
 
-Finally, we are ready to restrict the Hamiltonian to $\mathcal{H}_{QB,1} = \operatorname{Span}[\{|\uparrow\downarrow\downarrow\rangle, \, |\downarrow\uparrow\downarrow\rangle, \,|\downarrow\downarrow\uparrow\rangle\}] $ sector. Only the qubit operators are influenced by the restriction. As was already said, the restriction to the single excitation sector leads to decoupling of the $0$th boson mode $\hat a(0), \, \hat a^{\dagger}(0)$. We leave it as well as constant terms out in the following:
+\paragraph{Restriction to $\mathcal H_{\text{QB},1}$.}
+Inside the single--excitation subspace the zero-momentum ($k=0$) boson mode
+decouples from the dynamics.  Discarding constants and the inert mode we obtain
 \begin{equation}
-\begin{aligned}
-    &\hat H_{QB,1} = S^{-1}  \hat H_{QB} S \big|_{\mathcal{H}_{QB,1}} \\
-    &= \Omega_{QB} \sum\limits_{k=1}^2 \hat a^{\dagger}(k) \hat a(k)  + g (X + X^{\dagger}) \\
-    &+i\sqrt{\frac{\Omega_{QB}}{6m_{QB}}} \left[-\hat a(1) + \hat a^{\dagger}(2)\right] Z \\
-    &+i\sqrt{\frac{\Omega_{QB}}{6m_{QB}}} \left[-\hat a(2) + \hat a^{\dagger}(1)\right] Z^{\dagger}.
-\end{aligned}
+  \begin{aligned}
+    \hat H_{\text{QB},1} &= \Omega_{\text{QB}} \sum_{k=1}^{2} \hat a^{\dagger}(k)
+      \hat a(k) + g \bigl( X + X^{\dagger} \bigr)
+      \\
+      &\quad + i \sqrt{ \frac{\Omega_{\text{QB}}}{6 m_{\text{QB}}} }
+        \Bigl[ -( \hat a(1) - \hat a^{\dagger}(2) ) Z
+        - ( \hat a(2) - \hat a^{\dagger}(1) ) Z^{\dagger} \Bigr].
+  \end{aligned}
 \end{equation}
 
-To get the $\Zthree$ Rabi model in the form (\ref{2-mode-Z3-Rabi}) we need to do some final fine-tuning. To be precise, we utilize the Hadamard transformation and the boson $U(1)$ symmetry to arrive to:
+\paragraph{Final rearrangement.}
+A Hadamard transform on the spin degrees of freedom, combined with a global
+bosonic $U(1)$ phase rotation, brings the Hamiltonian to the canonical
+$\Zthree$ two--mode Rabi form,
 \begin{equation}
 \label{effective-rabi}
-\begin{aligned}
-    &\hat H_{\text{R}2} = U^{-1} \hat H_{QB,1} U  \\
-    &=\Omega_{QB} (\hat a^{\dagger}(1) \hat a(1) + \hat a^{\dagger}(2) \hat a(2)) + g (Z + Z^{\dagger}) \\
-    & - \sqrt{\frac{\Omega_{QB}}{6m_{QB}}} \left[\hat a(1) + \hat a^{\dagger}(2)\right] X \\
-    &- \sqrt{\frac{\Omega_{QB}}{6m_{QB}}} \left[\hat a(2) + \hat a^{\dagger}(1)\right] X^{\dagger},
-\end{aligned}
+  \begin{aligned}
+    \hat H_{\text{R}2} &= \Omega_{\text{QB}}
+      \bigl( \hat a^{\dagger}(1) \hat a(1) + \hat a^{\dagger}(2) \hat a(2) \bigr)
+      + g \bigl( Z + Z^{\dagger} \bigr)
+      \\
+      &\quad - \sqrt{ \frac{\Omega_{\text{QB}}}{6 m_{\text{QB}}} }
+      \Bigl[ ( \hat a(1) + \hat a^{\dagger}(2) ) X
+        + ( \hat a(2) + \hat a^{\dagger}(1) ) X^{\dagger} \Bigr].
+  \end{aligned}
 \end{equation}
-where the qubit-boson ring parameters relate to the $\Zthree$ Rabi model (\ref{2-mode-Z3-Rabi}) parameters through the following mapping:
+The identification with Eq.~(\ref{2-mode-Z3-Rabi}) is
 \begin{equation}
 \label{QB-RM-parameter-mapping}
-  \Omega_R = \Omega_QB, \, B = g, \,  \phi = 0, \,\lambda = \sqrt{\frac{\Omega_{QB}}{6m_{QB}}}.
+  \Omega_R = \Omega_{\text{QB}},
+  \quad B = g,
+  \quad \phi = 0,
+  \quad \lambda = \sqrt{ \frac{\Omega_{\text{QB}}}{6 m_{\text{QB}}} }.
 \end{equation}
-As can be seen, the boson frequency remains the same while the Rabi interaction parameter $\lambda$ is expressed by the combination of the boson frequency $\Omega_{QB}$ and the boson mass $m_{QB}$.
 
-For clarity, we also write down the explicit form of the ``magnetic'' term,
+For completeness we record the explicit ``magnetic'' term,
 \begin{equation}
 \label{superconducting-magnetic-term}
-  g (Z + Z^{\dagger}) = \begin{pmatrix}
-      2 g & 0 & 0 \\
-      0 & -g & 0 \\
-      0 & 0 & -g
-  \end{pmatrix}.   
+  g \bigl( Z + Z^{\dagger} \bigr) =
+  \begin{pmatrix}
+    2 g & 0 & 0 \\
+    0 & -g & 0 \\
+    0 & 0 & -g
+  \end{pmatrix}.
 \end{equation}
-In the end, we see that the $\Zthree$ Rabi model describes the single-excitation sector of the boson-qubit ring (\ref{physical-hamiltonian}).
+Thus the two--mode $\Zthree$ Rabi model faithfully captures the dynamics of
+the QB ring in the single--excitation sector.
 
-We selected the superconducting qubits as the main platform to illustrate our proposal because it is relatively easy to engineer a superconducting circuit with the interaction we want. Moreover, the consequent analysis of the resulting quantum system is straightforward \cite{yurke_quantum_1984, devoret_quantum_1997,wendin_superconducting_2005}. However, we believe that similar construction is also possible in other contexts. The optomechanical system is another example we provide.
+We emphasise superconducting qubits as a natural platform for engineering the
+interaction~\eqref{physical-hamiltonian}, although analogous constructions are
+possible in, for example, optomechanical settings.
 
 
 \subsubsection{Why so complicated?}
@@ -314,7 +368,7 @@ As one can see, the non-zero ``magnetic'' term's phase $\varphi$ leads to all th
 
 
 
-\section{Potts model from coupled \texorpdfstring{$\Zthree$}{Z3} Rabi models}
+\section{\texorpdfstring{$\Zthree$}{Z3} Potts model}
 \label{potts-model}
 
 \subsection{Theoretical description}
@@ -560,133 +614,36 @@ We thank Daria Kalacheva, Henry Legg, Katharina Laubscher, and Ilia Luchnikov fo
 
 \appendix
 
+\section{Generalisation to an arbitrary interaction matrix}
+\label{arbitrary-interaction-summary}
 
-\section{Qubit-boson ring with an arbitrary matrix interaction}
-\label{arbitrary-interaction}
-
-In Sec. \ref{physical-implementation} we proposed to physically implement the $\Zthree$ Rabi model using the spin-boson ring with the special interaction (\ref{physical-hamiltonian}). The main idea is that the $\Zthree$ Rabi model describes the dynamics of the spin-boson ring in the single excitation sector $\mathcal{H}_1$, i.e., the subspace of the Hilbert space $\mathcal{H}$ with a single spin up. In this appendix, we discuss this idea more thoroughly. In particular, we consider a more general Hamiltonian that simultaneously represents the superconducting qubit implementation, described in Sec. \ref{superconducting-implementation}, and the optomechanical implementation, described in Sec.  \ref{optomechanical-implementation}.
-For this purpose, we add an interaction matrix $A$ that describes the relative strength of spin-qubit interaction $V_{\text{gen}}$ between different sites. Specifically, the interaction matrix $A$ describes the connectivity of the model.
+For completeness we summarise how the above derivation extends to a QB ring
+with an arbitrary $\Zthree$--symmetric interaction matrix~$A$.  The starting
+Hamiltonian is
 \begin{equation}
 \label{arbitary-interaction-hamiltonian}
-\begin{aligned}
-    \hat H_{\text{gen}} &= \epsilon \sum\limits_{j=1}^3 \sigma_i^z + \Omega \sum\limits_{j=1}^3 \hat a_j^{\dagger} \hat a_j + \hat V_{\text{gen}}, \, \text{with} \\
-    \hat V_{\text{gen}} &= g \sum\limits_{j,k} A_{jk} \sigma_j^+ \sigma_k^- e^{i\eta (\hat x_j - \hat x_k)},
-\end{aligned}
+  \begin{aligned}
+    \hat H_{\text{gen}} &= \epsilon \sum_{j=1}^{3} \sigma_j^z
+      + \Omega \sum_{j=1}^{3} \hat a_j^{\dagger} \hat a_j + \hat V_{\text{gen}},
+      \\
+    \hat V_{\text{gen}} &= g \sum_{j,k} A_{jk}
+      \sigma_j^{+} \sigma_k^{-} e^{ i ( \hat x_j - \hat x_k ) },
+  \end{aligned}
 \end{equation}
-where $A_{jk}$ is an $n\times n$ matrix with $ A^{\dagger} = A $ by virtue of $\hat V$ being Hermitian. The matrix $A$ basically describes the connectivity of the model and the relative strength of different interaction terms. In case of $A_{jk} = \delta_{j-1,k} + \delta_{j+1,k} $ and $\eta = 1 $ the model (\ref{arbitary-interaction-hamiltonian}) is reduced to the one (\ref{physical-hamiltonian}) considered in the main text. In fact, we can eliminate $\eta$ by rescaling the coordinate and momentum operators. Although physically it corresponds to the time scaling and changes the boson mass $m \to m/\eta^2$, we use this transformation to make the following treatment more uniform.
-
-The Hamiltonian commutes with the total number of spin excitations operator $\hat S^z = \sum_j \sigma_j^z $. Hence, the number of spin excitations is conserved, and it is possible to decompose the Hilbert space into sectors with a fixed number of spin excitations $\mathcal{H} = \mathcal{H}_0 \oplus \mathcal{H}_1 \oplus \mathcal{H}_2 \oplus \mathcal{H}_3$. For each sector we have $\hat S^z |_{\mathcal{H}_n} = (2n - 3) \operatorname{Id}_{\mathcal{H}_n}$.
-
-To prove that the $\Zthree$ Rabi model describes the dynamics of (\ref{arbitary-interaction-hamiltonian}) in the single spin excitation sector $\mathcal{H}_1$ we first need to transform the Hamiltonian a bit. The short plan is to apply a spin-dependent momentum translation. Afterwards, we apply the Fourier transform, and finally restrict the model to a single excitation subspace. In the end, we obtain the $\Zthree$ Rabi model.
-
-First of all, we would like to apply the unitary transformation $ \hat S = \prod_j\exp[i\sigma_j^z \eta \hat x_j/2] $. Considering that $\exp[ia\hat x]$ is a momentum translation operator, one can interpret $\hat S$  as a spin-dependent momentum
-translation.  Its purpose is to make $\hat V_{\text{gen}} $ an interaction acting purely on the spin degrees of freedom. In place of it we obtain a simpler interaction between the spin and the boson degrees of freedom $\sum_j \hat p_j \sigma_j^z$: 
+with $A^{\dagger}=A$.  The same sequence of steps---momentum translation $S$,
+Fourier transform, and restriction to $\mathcal H_{\text{QB},1}$---again leads
+to the two--mode Hamiltonian\footnote{An additional basis change might be
+required to diagonalise the purely spin term.}
+\eqref{effective-rabi}, now with $gA$ replacing $g(Z+Z^{\dagger})$.  Hence any
+interaction matrix compatible with $\Zthree$ symmetry can be mapped onto the
+canonical Rabi model.  The parameter correspondence reads
 \begin{equation}
-\begin{aligned}
-    S^{-1} \hat H_{\text{gen}} S = &\epsilon \sum \sigma_i^z + \Omega \sum \hat a_j^{\dagger} \hat a_j + \frac{1}{2 m}\sum \hat p_j \sigma_j^z + \frac{n}{4m} \\
-    &+ g \sum\limits_{j,k} A_{jk} \sigma_j^+ \sigma_{k}^-.
-\end{aligned}
+  \Omega_R = \Omega, \qquad \lambda = \sqrt{ \frac{\Omega}{6 m} }.
 \end{equation}
 
-As a next step, we apply the Fourier transform to the spin and boson operators. Despite working explicitly with a system of length $3$, we define the Fourier transform in a general case of length $N$ system, because it is clearer this way. 
-The Fourier transform for the observable $\hat O$, e.g., $\hat \sigma^z, \hat x, \hat p, \dots $, is
-\begin{equation}
-    \hat O(k) = \frac{1}{\sqrt{N}}\sum\limits_{j=1}^N e^{-\frac{2\pi i}{N}kj} \hat O_j,
-\end{equation}
-where $k = 0,\,  2 \pi/N, \, \dots, \, (N-1)\cdot 2\pi/N$ is a wavevector.
-
-Consequently, for the momentum operators in the reciprocal space we have
-\begin{equation}
-    \hat p(k) = i \sqrt{\frac{m\Omega}{2}}\left( -\hat a(k) + \hat a^{\dagger}(-k) \right)
-\end{equation}
-However, this convention changes the commutation relations a bit: $[\hat x(k_1),\, \hat p(k_2)] = i \delta_{k_1,\,-k_2}$, while $[\hat a(k_1),\, \hat a^{\dagger}(k_2)] = \delta_{k_1,\,k_2}$.
-
-Spin operators after the Fourier transform are convenient for several reasons. For example, $\sigma^z(0) $ is a total excitation number operator. Thanks to it being conserved, the zeroth boson component is decoupled from the rest of the system. Moreover, the restriction of $\sigma^z(k)$ to the single excitation subspace $\mathcal{H}_1$ is simple:
-\begin{equation}
-    \sigma^z(k) \bigg|_{\mathcal{H}_1} = \frac{2 - 3 \delta_{k,0}}{\sqrt{3}} Z^k.
-\end{equation}
-
-We do not apply the discrete Fourier transform to $S^{-1} \hat V_{\text{gen}}S $, because it is already in a convenient form to restrict it to the single excitation subspace. Taking the all aforementioned details into the account we arrive at:
-\begin{equation}
-\begin{aligned}
-    S^{-1} \hat H_{\text{gen}} S &= \epsilon \sigma^z(0) + \Omega \sum\limits_{k=0}^{2} \hat a^{\dagger}(k) \hat a(k) \\
-    &+ \frac{i}{2}\sqrt{\frac{\Omega}{2 m}} \sum\limits_{k = 0}^{2} (-\hat a(k) + \hat a^{\dagger}(-k)) \sigma^z(k) \\
-    &+ \frac{N}{4m} + g \sum\limits_{j_1,j_2=1}^3 A_{j_1 j_2} \sigma_{j_1}^+ \sigma_{j_2}^-.
-\end{aligned}
-\end{equation}
-
-Now we can safely restrict the Hamiltonian to the subspace $\mathcal{H}_1$. It does not affect boson operators, and the spin operators restriction we have already discussed. As a result, the Hamiltonian reaches a form quite similar to the $\Zthree$ Rabi model (\ref{2-mode-Z3-Rabi}):
-\begin{equation}
-\begin{aligned}
-    &S^{-1} \hat H_{\text{gen}} S\bigg  |_{\mathcal{H}_1} = \epsilon + \frac{N}{4m} + g A \\
-    &+\Omega \hat a^{\dagger}(0) \hat a(0) - \frac{i}{2}\sqrt{\frac{\Omega}{6 m}}\left(-\hat a^{\dagger}(0) + \hat a(0)\right) \\
-    &+\Omega \left[\hat a^{\dagger}(1) \hat a(1) + \hat a^{\dagger}(2) \hat a(2)\right] \\ 
-    &+ i\sqrt{\frac{\Omega}{6 m}} \left[(-\hat a(1) + \hat a^{\dagger}(2))Z  + (-\hat a(2) + \hat a^{\dagger}(1))Z^{\dagger}  \right] ,
-\end{aligned}
-\end{equation}
-where matrix $A$ became operator acting in $\mathcal{H}_1$. 
-
-We drop the first line in Hamiltonian, because it contains only constants and the decoupled boson mode $\hat a_0, \, \hat a_0^{\dagger}$. As a next step, we apply Hadamard transform $\hat H_{ij} = \omega^{i-j}/\sqrt{3}$ to $\mathcal{H}_1$ to turn $ Z, \, Z^2$ operators in the spin-boson interaction term into  $ X, \, X^2$ operators. Also, we employ the quantum harmonic oscillator $U(1)$ phase symmetry to get rid of the imaginary unit in front of the interaction term ($\hat a(k) \mapsto -i \hat a(k), \, \hat a^{\dagger}(k) \mapsto i \hat a(k)$):
-\begin{equation}
-\label{arbitrary-interaction-Rabi}
-\begin{aligned}
-    &\hat H = \Omega \left[\hat a^{\dagger}(1) \hat a(1) + \hat a^{\dagger}(2) \hat a(2)\right] \\
-    &- \sqrt{\frac{\Omega}{6 m}}\left[\left(\hat a(1) + \hat a^{\dagger}(2))\right)\hat X  + \left(\hat a(2) + \hat a^{\dagger}(1)\right)\hat X^{\dagger}  \right] \\
-    &+ g \hat H \hat A \hat H^{-1}
-\end{aligned}
-\end{equation}
-
-We already arrived to the $\Zthree$ Rabi model. If we remember about time scaling we used to get rid of $\eta$, we can write down the following expressions for the Rabi model parameters:
-\begin{equation}
-    \Omega_R = \Omega, \, \lambda = \sqrt{\frac{\Omega \eta^2}{6m}}.
-\end{equation}
-
-However, the purely spin term is expressed by an arbitrary interaction matrix $A$. The $\Zthree$ symmetry puts a restriction on the form of $ A$. The both superconducting qubit and optomechanical cases we are interested in satisfy this requirement. Consequently, they could be transformed to the canonical 2-mode $\Zthree$ Rabi model (\ref{2-mode-Z3-Rabi}).
-
-Now in the case of the superconducting qubit platform we simply have $A = X + X^2$. Substituting it into (\ref{arbitrary-interaction-Rabi}),  we obtain precisely the $\Zthree$ Rabi model:
-\begin{equation}
-\begin{aligned}
-    \hat H = &g (Z + Z^2) + \Omega \left[\hat a^{\dagger}(1) \hat a(1) + \hat a^{\dagger}(2) \hat a(2)\right] \\
-    &- \sqrt{\frac{\Omega}{2 m}}\left[\left(\hat a(1) + \hat a^{\dagger}(2))\right)X  + \left(\hat a(2) + \hat a^{\dagger}(1)\right) X^{\dagger}  \right]
-\end{aligned}
-\end{equation}
-
-In the optomechanical case the form of the interaction matrix $A$ is a bit more complicated
-\begin{equation}
-    A = \begin{pmatrix} 0 & i & i \\ -i & 0 & i \\ -i & -i & 0 \end{pmatrix}.
-\end{equation}
-
-
-\begin{figure}[t]
-    \centering
-    \subfloat[]{
-         \centering
-         \includegraphics[width=0.4\linewidth]{pics/SC_qubit2_svg-tex.pdf}
-         \vspace{0.1pt} %% Shifts the first image to allign it with x axis of the second image
-         %%\caption{}
-         \label{fig:2nd-harmonic-qubit-a}}
-     \hfill
-    \subfloat[]{
-         \centering
-         \includegraphics[width=0.5\linewidth]{pics/capacitor_potential.pdf}
-         %%\caption{ }
-         \label{fig:second-harmonic-qubit-b}}
-    \caption{Second-harmonic qubit. a) The electric circuit of the second-harmonic qubit circuit. b) The capacitor potential (\ref{second-harmonic-qubit}) for $n_0 = 0.45 = 0.5 - 0.05 $. The red dots show the eigenenergies of the second-harmonic qubit.}
-    \label{fig:second-harmonic-qubit}
-\end{figure}
-
-
-Consequently, we need to apply an additional transformation defined by matrix $U_{ij} = \exp[2\pi i(3/2 - j)(i-1)/3]/\sqrt{3}$. In the end, we arrive at
-\begin{equation}
-\begin{aligned}
-    &U^{\dagger}\hat H U = g (e^{-5\pi i/6} Z + e^{5\pi i/6} Z^2) \\
-    &+ \Omega \left[\hat a^{\dagger}(1) \hat a(1) + \hat a^{\dagger}(2) \hat a(2)\right] \\
-    &- \sqrt{\frac{\Omega}{2 m}} \left[\left(\hat a(1) + \hat a^{\dagger}(2))\right) X  + \left(\hat a(2) + \hat a^{\dagger}(1)\right) X^{\dagger}  \right]
-\end{aligned}
-\end{equation}
-
-In general, the same procedure is possible for any qubit-boson ring (\ref{arbitary-interaction-hamiltonian}) with a $\Zthree$ symmetric matrix $A$.
-
+In the superconducting implementation one has $A = X + X^{\dagger}$, thereby
+recovering the special case treated above.  The optomechanical realisation
+gives rise to a different Hermitian $A$ but follows exactly the same logic.
 
 
 

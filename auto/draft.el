@@ -44,6 +44,7 @@
     "physical-implementation"
     "physical-hamiltonian"
     "after-momentum-translation"
+    "after-fourier"
     "effective-rabi"
     "QB-RM-parameter-mapping"
     "superconducting-magnetic-term"
@@ -64,12 +65,8 @@
     "fig:spin-excitation-plot"
     "chiral-potts-hamiltonian"
     "rabi-breaking-disorder"
-    "arbitrary-interaction"
+    "arbitrary-interaction-summary"
     "arbitary-interaction-hamiltonian"
-    "arbitrary-interaction-Rabi"
-    "fig:2nd-harmonic-qubit-a"
-    "fig:second-harmonic-qubit-b"
-    "fig:second-harmonic-qubit"
     "charge-qubit"
     "second-harmonic-qubit")
    (LaTeX-add-bibliographies
