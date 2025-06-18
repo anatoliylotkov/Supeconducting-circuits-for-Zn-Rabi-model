@@ -7,6 +7,7 @@
 \usepackage{mathrsfs,esint}
 \usepackage{physics}
 \usepackage{relsize}
+\usepackage{bbold}
 %% \usepackage{float} %% revtex4-2 has a conflict with float
 \usepackage{dsfont}
 \usepackage{comment}
@@ -27,6 +28,9 @@
    hyperindex=true
 ]{hyperref}
 %\usepackage{natbib}
+
+% todo package
+\usepackage{todonotes}
 
 \definecolor{mediumtealblue}{rgb}{0.0, 0.33, 0.71}
 \newcommand{\jk}[1]{{\color{mediumtealblue}#1}}
@@ -90,15 +94,57 @@ Additionaly, the Potts model is dual to a parafermion chain \cite{fradkin_disord
 
 In the remainder of the manuscript we proceed as follows. In Sec.~II, we introduce the 1-mode $\Zn$ and $\Zthree$ Rabi models and study their properties. Next, in Sec.~III, this construction is generalized to the 2-mode $\Zthree$ Rabi model. In Sec.~IV, the 2-mode $\Zthree$ Rabi model is mapped to a qubit-boson ring of length 3. It allows us to propose superconducting-circuit and optomechanical implementations of the model. In Sec.~V,  the nearest‑neighbour $\Zthree$ Potts model is built from a chain of $\Zthree$ Rabi models. In Sec.~VI we analyze the impact of the disorder on the proposed construction. We conclude in Sec.~VII.
 
+%%%%%%%%%%%%%%%%%%
 
+In this paper we study $\Zthree$ Rabi and $\Zthree$ Potts models. They are cool. We propose the experimental implementation of the $\Zthree$ Rabi model. And then using the idea of Hwang \cite{hwang_largescale_2013} we build the $\Zthree$ Potts model out of the chain of the $\Zthree$ Rabi models. The scheme we propose is based on the $\Zthree$ Rabi model having $\Zthree$ cat states as the three lowest eigenstates. We use them as a base for the $\Zthree$ Potts model states. The cat states of the $i$th Rabi model in the chain form the Potts model states on the $i$th site. 
+
+%% What else?
 
 \section{$\Zthree$ Rabi model.}
 
+\subsection{Theoretical description}
+\label{sec:rabi-theory}
+
+In this section, we give a brief theoretical description of the $\Zthree$ Rabi model. For the more detailed discussion, we refer the reader to \todo{cite our paper}. We are interested in the 2-mode variation because it maps on the qubit-boson ring described in Sec.~\ref{physical-implementation}. It describes the $\Zthree$-symmetric interaction of two boson modes and a qutrit. Its Hamiltonian is
+\begin{equation}
+\label{2-mode-z3-Rabi}
+\begin{aligned}
+     H_{\text{R}2} = &\Omega_{\text{R}} ( a_1^{\dagger}  a_1 +  a_2^{\dagger}  a_2) + B (e^{i\phi} Z + e^{-i\phi} Z^{\dagger}) \\
+    &- \lambda ( a_1 +  a_2^{\dagger}) X - \lambda ( a_1^{\dagger} +  a_2) X^{\dagger}.
+\end{aligned}
+\end{equation}
+Here, we use the $\Zthree$ shift $X$ and clock $Z$ matrices for the qutrit degree of freedom. These matrices are a $3\times 3$ generalization of the Pauli matrices. They are defined by
+\begin{equation}
+\label{shift-clock-matreces}
+    X = \begin{pmatrix} 
+         0 & 0 & 1 \\
+         1 & 0 & 0 \\
+         0 & 1 & 0 
+        \end{pmatrix}, \quad
+    Z = \begin{pmatrix}
+         1 & 0 & 0 \\
+         0 & \omega & 0 \\
+         0 & 0 & \omega^2
+        \end{pmatrix}.
+      \end{equation}
+The clock and shift matrices are unitary $ X X^{\dagger} = \mathbb{1}, \, Z Z^{\dagger} = \mathbb{1}$ but not hermitian $ X^{\dagger} \neq X, \, Z^{\dagger} \neq Z$. Therefore, the analogy with the Pauli matrices is not full.
+
+The $\Zthree$ symmetry generator has the following form:
+\begin{equation}
+     R_{\text{R}2} = \exp\left[\frac{2\pi i}{3}(a_1^{\dagger}  a_1 -  a_2^{\dagger}  a_2)\right] \cdot Z.
+   \end{equation}
+   
+In the deep-strong coupling regime $\lambda \gtrsim \Omega_R$ and low magnetic field limit $ B \ll \Omega_R$ the three lowest eigenstates are the $\Zthree$ cat states
+\begin{equation}
+\label{three-cat-states}
+    |\psi_k\rangle = \frac{1}{\sqrt{3}}\sum\limits_{l=0}^2 \omega^{lk}|\omega^{-l} \lambda/\Omega_{\text{R}}\rangle_{ a_1}|\omega^l \lambda/\Omega_{\text{R}}\rangle_{ a_2} |\omega^{-l} \rangle,
+\end{equation}
+where $a_1, a_2$ subscripts denote that the state belongs to the $1$st/$2$nd boson mode. The $|\psi_k\rangle$ states are the $\Zthree$ generalization of the ordinary cat states $|+\alpha\rangle \pm |-\alpha$. As you see, the ordinary ($\Ztwo$) cat states are a linear combination of two coherent states with parameters $\pm\alpha$. In the $\Zthree$ case, $|\psi_k\rangle$ states are a linear combination of three coherent states with parameters $\omega^i \alpha, \, i = 0,1,2$ instead. For the $\Zthree$ Rabi model, we have $\alpha = \lambda/\Omega_R$. 
 
 \subsection{Qubit--boson ring}
 \label{physical-implementation}
 
-In this section we demonstrate how the two--mode $\Zthree$ Rabi model emerges
+In this section we demonstrate how the two--mode $\Zthree$ Rabi model~\eqref{2-mode-z3-Rabi} emerges
 in the single--excitation sector of a three--site qubit--boson (QB) ring with
 nearest--neighbour coupling.  Superconducting and optomechanical
 implementations are briefly commented on, while a compact derivation for a

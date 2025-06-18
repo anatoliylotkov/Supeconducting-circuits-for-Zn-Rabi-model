@@ -25,11 +25,13 @@
     "esint"
     "physics"
     "relsize"
+    "bbold"
     "dsfont"
     "comment"
     "svg"
     "subfig"
-    "hyperref")
+    "hyperref"
+    "todonotes")
    (TeX-add-symbols
     '("dl" 1)
     '("al" 1)
@@ -41,6 +43,10 @@
     "diag"
     "sgn")
    (LaTeX-add-labels
+    "sec:rabi-theory"
+    "2-mode-z3-Rabi"
+    "shift-clock-matreces"
+    "three-cat-states"
     "physical-implementation"
     "physical-hamiltonian"
     "after-momentum-translation"
