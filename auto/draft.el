@@ -65,16 +65,16 @@
     "coupled-rabi"
     "fig:superconducting-potts"
     "fig:optomechanical-potts"
+    "chiral-potts-hamiltonian"
+    "arbitrary-interaction-summary"
+    "arbitary-interaction-hamiltonian"
+    "charge-qubit"
+    "second-harmonic-qubit"
     "fig:1st-spin-correlator"
     "fig:2nd-spin-correlator"
     "fig:3rd-spin-correlator"
     "fig:spin-excitation-plot"
-    "chiral-potts-hamiltonian"
-    "rabi-breaking-disorder"
-    "arbitrary-interaction-summary"
-    "arbitary-interaction-hamiltonian"
-    "charge-qubit"
-    "second-harmonic-qubit")
+    "rabi-breaking-disorder")
    (LaTeX-add-bibliographies
     "references"))
  :latex)

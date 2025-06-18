@@ -96,9 +96,13 @@ In the remainder of the manuscript we proceed as follows. In Sec.~II, we introdu
 
 %%%%%%%%%%%%%%%%%%
 
-In this paper we study $\Zthree$ Rabi and $\Zthree$ Potts models. They are cool. We propose the experimental implementation of the $\Zthree$ Rabi model. And then using the idea of Hwang \cite{hwang_largescale_2013} we build the $\Zthree$ Potts model out of the chain of the $\Zthree$ Rabi models. The scheme we propose is based on the $\Zthree$ Rabi model having $\Zthree$ cat states as the three lowest eigenstates. We use them as a base for the $\Zthree$ Potts model states. The cat states of the $i$th Rabi model in the chain form the Potts model states on the $i$th site. 
+In this paper we study $\Zthree$ Rabi and $\Zthree$ Potts models. We propose the experimental implementation of the $\Zthree$ Rabi model. And then using the idea of Hwang \cite{hwang_largescale_2013} we build the $\Zthree$ Potts model out of the chain of the $\Zthree$ Rabi models. The scheme we propose is based on the $\Zthree$ Rabi model having $\Zthree$ cat states as the three lowest eigenstates. We use them as a base for the $\Zthree$ Potts model states. The cat states of the $i$th Rabi model in the chain form the Potts model states on the $i$th site. 
 
 %% What else?
+
+- potts model is difficult
+- 
+
 
 \section{$\Zthree$ Rabi model.}
 
@@ -533,29 +537,6 @@ We can repeat the same procedure for the optomechanical system. However, it is a
 \subsection{Chiral Potts model and parafermions}
 
 
-\begin{figure*}[t]
-    \captionsetup[subfloat]{captionskip=-135pt} %%Moving captions on top
-    \centering
-    \subfloat[]{
-         \centering
-         %%\caption{}
-        \includegraphics[width=0.32\linewidth]{pics/Spin_correlators_1.pdf}
-         \label{fig:1st-spin-correlator}}
-    \subfloat[]{
-         \centering
-        %%\caption{ }
-        \includegraphics[width=0.274\linewidth]{pics/Spin_correlators_2.pdf}
-         \label{fig:2nd-spin-correlator}}
-    \subfloat[]{
-         \centering
-        %%\caption{}
-        \includegraphics[width=0.37\linewidth]{pics/Spin_correlators_3.pdf}
-         \label{fig:3rd-spin-correlator}}
-    \caption{Time dependence of the total spin excitation operator. To illustrate robustness of the Rabi model implementation with the respect of disorder (\ref{rabi-breaking-disorder}) we plotted $\langle S_z(t) \rangle$. The standard variance of the disorder $\Delta_j$ equals for plot a) 0.1; b) 0.3; c) 1.}
-    \label{fig:spin-excitation-plot}
-\end{figure*}
-
-
 In this subsection, we want to briefly overview the chiral Potts model. It is a generalization of the ordinary Potts model that has a chiral nearest-neighbour interaction:
 \begin{equation}
 \label{chiral-potts-hamiltonian}
@@ -595,52 +576,6 @@ On the other hand, it is known that parafermion chain has a phase with a parafer
 
 Unfortunately, after the parafermion edge mode is not localized on the edged after FK transformation. As a result, we do not have an actual topological phase in the chiral Potts model. But we believe that it still holds an importance because it allows us to simulate a parafermion chain.
 
-
-\section{Disorder in the superconducting implementation}
-\subsection{Disorder breaking the total qubit excitation number conservation}
-
-
-First, while discussing the effect of the disorder on the qubit-boson ring (\ref{physical-hamiltonian}), we need to consider a term that breaks the conservation of the total excitation number of qubits $\hat S^z$. This conservation law is broken by the Zeeman terms being not perfectly aligned with $\hat z$ direction:
-\begin{equation}
-    \hat H_{QB,\text{dis}} = \hat H_{QB} + \sum_{j=1}^3 \Delta_j \sigma_j^x.
-\end{equation}
-As explained in App. \ref{charge-qubit}, $\Delta_j$ being equal to zero for qubit-boson ring based on superconducting circuits relies on the fine-tuning of the SQUID magnetic field. Therefore, in a realistic setting we unavoidably are going to have non-zero $\Delta_j = I_{Q,1}\sin(\Delta \Phi_j)$.
-
-As a result, we have $[\hat H_{QB,\text{dis}}, \hat S^z] \neq 0 $. Unfortunately, it breaks the derivation of the Rabi model. However, assuming that the disorder is considerably smaller then other parameters in the Hamiltonian, we can still hope that the dynamics is approximately governed by the Rabi model. Because an analytic estimate is cumbersome, we performed numerical simulations of the qubit–boson ring. The results could be seen on Fig. \ref{fig:spin-excitation-plot}. The simulation shows that for the small disorder the qubit-boson ring stays around the single excitation subspace $\mathcal{H}_1$ because $\langle \hat S^z \rangle(t) \approx 1$. We speculate that it happens because the spins precess around $\langle \hat S^z \rangle = 1$.
-
-
-\subsection{Disorder breaking \texorpdfstring{$\Zthree$}{Z3} symmetry}
-
-Now, assuming that the total number of qubit excitations is conserved, we would like to investigate how the coordinate dependence of the parameter in the qubit-boson ring influences the resulting Rabi model. The spatial non-homogeneity obviously breaks the $\Zthree$ symmetry. However, we want to find the explicit symmetry-breaking term.
-\begin{equation}
-\label{rabi-breaking-disorder}
-\begin{aligned}
-  \hat H_{QB}' &= \sum_j \epsilon_{j} \sigma_j^z + \sum_j \Omega_j \hat a^{\dagger}_j \hat a_j  \\
-  &+ \sum_j g_{j,j+1} \left[\sigma_j^+ \sigma_{j+1}^- e^{i (\hat x_j - \hat x_{j+1})} +\text{h.c}\right]
-\end{aligned}
-\end{equation}
-where we have
-\begin{equation}
-\begin{aligned}
-    &\epsilon_j = \frac{\delta_j}{2 C_{Q,j}},\,
-    \Omega_{QB,j} = \left(L_{\text{B},j}C_{\text{B},j}\right)^{-1/2}, \\
-    &g_{j,j+1} = \frac{I_{\text{Rabi},j}}{2}.
-\end{aligned}
-\end{equation}
-
-For brevity, we decompose the coupling parameters into a homogeneous part and a disorder: $\epsilon_j = \epsilon + \Delta \epsilon_j$, $\Omega_j = \Omega + \Delta \Omega_j$, $g_{j,j+1} = g + \Delta g_{j,j+1}$, where we assume that the disorder averaged over the coordinate is zero: $\sum_j \Delta \epsilon_j =  \sum_j \Delta \Omega_j = \sum_j \Delta g_{j,j+1} =0$. We can always achieve this by adjusting the homogeneous coupling.
-
-Then the single-excitation sector is going to be described by
-\begin{equation}
-\begin{aligned}
-    &\hat H_{\text{2 Rabi}}' = \hat H_{\text{2 Rabi}} + \epsilon(2) X \\
-    &+\epsilon(1)  X^{\dagger} + (X + X^{\dagger}) \sum\limits_{k=1}^2 \Delta g(k) Z^k\\
-    &+ \Omega(1) \sum\limits_{k=0}^2 \hat a^{\dagger}(k+1) \hat a(k) + \Omega(2) \sum\limits_{k=0}^2 \hat a^{\dagger}(k) \hat a(k+1) \\
-    &+ \sum\limits_{l=1}^2 \frac{\Omega^{3/2}(l)}{2^{3/2}} \sum\limits_{k=0}^2 (\hat a(k+l) + \hat a^{\dagger}(-k-l)) Z^k.
-\end{aligned}
-\end{equation}
-
-Due to the disorder the first boson mode does not decouple anymore. However, the structure of threefold cat state should be still conserved for small disorder. 
 
 
 \section{Conclusion}
@@ -735,6 +670,76 @@ Hence, we obtained the qubit Hamiltonian we wanted. Here we consider $\frac{1}{2
 
 To conclude, the charge qubit we have in mind consists of a capacitor and the second-harmonic JJ. One can think of it as a certain generalization of a Cooper Pair Box qubit. In this appendix, we only briefly described its blueprint to give additional substance to the proposal in Sec. \ref{superconducting-implementation}.
 
+
+\section{Disorder in the superconducting implementation}
+\subsection{Disorder breaking the total qubit excitation number conservation}
+
+
+First, while discussing the effect of the disorder on the qubit-boson ring (\ref{physical-hamiltonian}), we need to consider a term that breaks the conservation of the total excitation number of qubits $\hat S^z$. This conservation law is broken by the Zeeman terms being not perfectly aligned with $\hat z$ direction:
+\begin{equation}
+    \hat H_{QB,\text{dis}} = \hat H_{QB} + \sum_{j=1}^3 \Delta_j \sigma_j^x.
+\end{equation}
+As explained in App. \ref{charge-qubit}, $\Delta_j$ being equal to zero for qubit-boson ring based on superconducting circuits relies on the fine-tuning of the SQUID magnetic field. Therefore, in a realistic setting we unavoidably are going to have non-zero $\Delta_j = I_{Q,1}\sin(\Delta \Phi_j)$.
+
+As a result, we have $[\hat H_{QB,\text{dis}}, \hat S^z] \neq 0 $. Unfortunately, it breaks the derivation of the Rabi model. However, assuming that the disorder is considerably smaller then other parameters in the Hamiltonian, we can still hope that the dynamics is approximately governed by the Rabi model. Because an analytic estimate is cumbersome, we performed numerical simulations of the qubit–boson ring. The results could be seen on Fig. \ref{fig:spin-excitation-plot}. The simulation shows that for the small disorder the qubit-boson ring stays around the single excitation subspace $\mathcal{H}_1$ because $\langle \hat S^z \rangle(t) \approx 1$. We speculate that it happens because the spins precess around $\langle \hat S^z \rangle = 1$.
+
+
+\subsection{Disorder breaking \texorpdfstring{$\Zthree$}{Z3} symmetry}
+
+\begin{figure*}[t]
+    \captionsetup[subfloat]{captionskip=-135pt} %%Moving captions on top
+    \centering
+    \subfloat[]{
+         \centering
+         %%\caption{}
+        \includegraphics[width=0.32\linewidth]{pics/Spin_correlators_1.pdf}
+         \label{fig:1st-spin-correlator}}
+    \subfloat[]{
+         \centering
+        %%\caption{ }
+        \includegraphics[width=0.274\linewidth]{pics/Spin_correlators_2.pdf}
+         \label{fig:2nd-spin-correlator}}
+    \subfloat[]{
+         \centering
+        %%\caption{}
+        \includegraphics[width=0.37\linewidth]{pics/Spin_correlators_3.pdf}
+         \label{fig:3rd-spin-correlator}}
+    \caption{Time dependence of the total spin excitation operator. To illustrate robustness of the Rabi model implementation with the respect of disorder (\ref{rabi-breaking-disorder}) we plotted $\langle S_z(t) \rangle$. The standard variance of the disorder $\Delta_j$ equals for plot a) 0.1; b) 0.3; c) 1.}
+    \label{fig:spin-excitation-plot}
+\end{figure*}
+
+
+
+Now, assuming that the total number of qubit excitations is conserved, we would like to investigate how the coordinate dependence of the parameter in the qubit-boson ring influences the resulting Rabi model. The spatial non-homogeneity obviously breaks the $\Zthree$ symmetry. However, we want to find the explicit symmetry-breaking term.
+\begin{equation}
+\label{rabi-breaking-disorder}
+\begin{aligned}
+  \hat H_{QB}' &= \sum_j \epsilon_{j} \sigma_j^z + \sum_j \Omega_j \hat a^{\dagger}_j \hat a_j  \\
+  &+ \sum_j g_{j,j+1} \left[\sigma_j^+ \sigma_{j+1}^- e^{i (\hat x_j - \hat x_{j+1})} +\text{h.c}\right]
+\end{aligned}
+\end{equation}
+where we have
+\begin{equation}
+\begin{aligned}
+    &\epsilon_j = \frac{\delta_j}{2 C_{Q,j}},\,
+    \Omega_{QB,j} = \left(L_{\text{B},j}C_{\text{B},j}\right)^{-1/2}, \\
+    &g_{j,j+1} = \frac{I_{\text{Rabi},j}}{2}.
+\end{aligned}
+\end{equation}
+
+For brevity, we decompose the coupling parameters into a homogeneous part and a disorder: $\epsilon_j = \epsilon + \Delta \epsilon_j$, $\Omega_j = \Omega + \Delta \Omega_j$, $g_{j,j+1} = g + \Delta g_{j,j+1}$, where we assume that the disorder averaged over the coordinate is zero: $\sum_j \Delta \epsilon_j =  \sum_j \Delta \Omega_j = \sum_j \Delta g_{j,j+1} =0$. We can always achieve this by adjusting the homogeneous coupling.
+
+Then the single-excitation sector is going to be described by
+\begin{equation}
+\begin{aligned}
+    &\hat H_{\text{2 Rabi}}' = \hat H_{\text{2 Rabi}} + \epsilon(2) X \\
+    &+\epsilon(1)  X^{\dagger} + (X + X^{\dagger}) \sum\limits_{k=1}^2 \Delta g(k) Z^k\\
+    &+ \Omega(1) \sum\limits_{k=0}^2 \hat a^{\dagger}(k+1) \hat a(k) + \Omega(2) \sum\limits_{k=0}^2 \hat a^{\dagger}(k) \hat a(k+1) \\
+    &+ \sum\limits_{l=1}^2 \frac{\Omega^{3/2}(l)}{2^{3/2}} \sum\limits_{k=0}^2 (\hat a(k+l) + \hat a^{\dagger}(-k-l)) Z^k.
+\end{aligned}
+\end{equation}
+
+Due to the disorder the first boson mode does not decouple anymore. However, the structure of threefold cat state should be still conserved for small disorder. 
 
 
 
