@@ -107,7 +107,7 @@ where $\hat a_i^{\dagger}\  (\hat a_i)$ with $i = 1,2$ are boson creation (annih
 
 The $\Zthree$ shift $X$ and clock $Z$ matrices are a standard tool for describing the qutrit systems. \todo{cite?} They are defined by
 \begin{equation}
-\label{shift-clock-matreces}
+\label{eq:shift-clock-matreces}
     X = \begin{pmatrix} 
          0 & 0 & 1 \\
          1 & 0 & 0 \\
@@ -129,7 +129,7 @@ As a consequence of the symmetry, the number of the first boson excitations minu
 
 One of the key ingridients in our $\Zthree$ Potts model is the strong boson-qutrit interaction. In particular, we are interested in what is usually called the deep-strong coupling regime in the Rabi model literature, $\lambda \gtrsim \Omega_R$. Also, we require the low magnetic field limit, $ B \ll \Omega_R$. This coupling regime leads to the full entanglement between the boson and qutrit degrees of freedom. Specifically, the three lowest eigenstates turn out to be the $\Zthree$ cat states \cite{lotkov_cat_} that allows us to implement the $\Zthree$-symmetric nearest neighbour interaction required for the Potts model,
 \begin{equation}
-\label{three-cat-states}
+\label{eq:three-cat-states}
     |\psi_k\rangle = \frac{1}{\sqrt{3}}\sum\limits_{l=0}^2 \omega^{lk}|\omega^{-l} \lambda/\Omega_{\text{R}}\rangle_{\hat a_1}|\omega^l \lambda/\Omega_{\text{R}}\rangle_{\hat a_2} |\omega^{-l} \rangle,
 \end{equation}
 where $\hat a_1$ ($\hat a_2$) subscripts denote that it is a coherent state of the first (second) boson mode.  The $\ket{\psi_k}$ states are the $\Zthree$ generalization of the ordinary cat states $\ket{+\alpha} \pm \ket{-\alpha}$. As you see, the ordinary ($\Ztwo$) cat states are a linear combination of two coherent states with parameters $\pm\alpha$. In the $\Zthree$ case, $|\psi_k\rangle$ states are a linear combination of three coherent states with parameters $\omega^i \alpha, \, i = 0,1,2$ instead. Also, for the two-mode $\Zthree$ Rabi model $\ket{\psi_k}$ is a joint cat state of the two boson modes and a qutrit. In case of the $\Zthree$ Rabi model, the coherent parameter is expressed through the model's coupling constants, $\alpha = \lambda/\Omega_R$. Having reviewed the necessary information of the $\Zthree$ Rabi model, we can move on to the model's mapping onto the qubit-boson ring.
@@ -141,7 +141,7 @@ In this section, we show how the two-mode $\Zthree$ Rabi model~\eqref{eq:2-mode-
 in the single-qutrit-excitation sector of a three-site qubit-boson (QB) ring with a
 nearest-neighbor coupling. This is the central construction of this paper. It allows us to propose a superconducting circuit implementation of the $\Zthree$ Rabi model below. Also, the optomechanical implementation for the $\Zthree$ Rabi model is based on a similar construction \cite{sedov_chiral_2020}.  Here, we work with a homogeneous chain with the periodic boundary condition. In App.~\ref{app:arbitrary-interaction-summary}, a similar argument is walked through for a chain with an arbitrary connectivity. The QB ring Hamiltonian is
 \begin{equation}
-\label{physical-hamiltonian}
+\label{eq:physical-hamiltonian}
   \begin{aligned}
     H_{\text{QB}} &= \epsilon \sum_{j=0}^{2} \sigma_j^z
       + \Omega_{\text{QB}} \sum_{j=0}^{2} \hat b_j^{\dagger} \hat b_j
@@ -166,7 +166,7 @@ where $\sigma_j^z$ correspond to the qubit degrees of freedom, while $\hat b_j^{
 \end{comment}
 
 The system has a $\mathrm{U(1)}$ symmetry conserving the total z axis spin projection\todo{Check how it is named in aps journals} $\hat S^z = \sum_j
-\sigma_j^z$, because it commutes with the Hamiltonian~\eqref{physical-hamiltonian}, $[ \hat H_{\text{QB}}, \hat S^z ] = 0$. Consequently, we consider not the full Hilbert space but only a certain sector with a specific total z axis spin projection, i.e., 
+\sigma_j^z$, because it commutes with the Hamiltonian~\eqref{eq:physical-hamiltonian}, $[ \hat H_{\text{QB}}, \hat S^z ] = 0$. Consequently, we consider not the full Hilbert space but only a certain sector with a specific total z axis spin projection, i.e., 
 the single-excitation sector
 \begin{equation}
 \label{eq:single-excitation-sector}
@@ -176,14 +176,14 @@ the single-excitation sector
     |\downarrow\downarrow\uparrow\rangle \bigr\}.
 \end{equation}
 
-To prove that the QB ring~\eqref{physical-hamiltonian} restricted to the single excitation sector $\mathcal{H}_{\text{QB,1}}$~\eqref{eq:single-excitation-sector} is equivalent to the $\Zthree$ Rabi model, we first apply several algebraic transformations to the Hamiltonian $H_{\text{QB}}$~\eqref{physical-hamiltonian}. To start with, we use the spin-dependent momentum translation to simplify the interaction term $V_{\text{QB}}$~\eqref{physical-hamiltonian}. Then, we apply the Fourier transform, it decouples one of the boson modes from the rest of the system. Afterwards, the resulting Hamiltonian is restricted to the single-excitation sector $\mathcal{H}_{\text{QB},1}$~\eqref{eq:single-excitation-sector}. We obtain the two-mode $\Zthree$ Rabi model, which is brought to the canonical form with some final adjustments.
+To prove that the QB ring~\eqref{eq:physical-hamiltonian} restricted to the single excitation sector $\mathcal{H}_{\text{QB,1}}$~\eqref{eq:single-excitation-sector} is equivalent to the $\Zthree$ Rabi model, we first apply several algebraic transformations to the Hamiltonian $H_{\text{QB}}$~\eqref{eq:physical-hamiltonian}. To start with, we use the spin-dependent momentum translation to simplify the interaction term $V_{\text{QB}}$~\eqref{eq:physical-hamiltonian}. Then, we apply the Fourier transform, it decouples one of the boson modes from the rest of the system. Afterwards, the resulting Hamiltonian is restricted to the single-excitation sector $\mathcal{H}_{\text{QB},1}$~\eqref{eq:single-excitation-sector}. We obtain the two-mode $\Zthree$ Rabi model, which is brought to the canonical form with some final adjustments.
 
 \paragraph{Spin-dependent momentum translation.}
 Applying the unitary operator
 $S = \prod_j e^{ i \sigma_j^z \hat x_j / 2 }$ removes the exponentials in
 $\hat V_{\text{QB}}$ and yields
 \begin{align}
-\label{after-momentum-translation}
+\label{eq:after-momentum-translation}
     S^{-1} \hat H_{\text{QB}} S &= \epsilon \sum_{j} \sigma_j^z
       + \Omega_{\text{QB}} \sum_j \hat b_j^{\dagger} \hat b_j
       + \frac{1}{2 m_{\text{QB}}} \sum_j \hat p_j \sigma_j^z \notag
@@ -198,9 +198,9 @@ spin-boson term proportional to $\hat p_j \sigma_j^z$.
 
 \paragraph{Fourier transform.}
 Introducing momentum-space operators $\hat b(k)$ and spin operators $S^{\pm}(k)$ via the Fourier transform, $\hat b(k)= \tfrac{1}{\sqrt{3}}\sum_{j}e^{-2\pi i jk/3}\hat b_j$, $ S^z(k)= \tfrac{1}{\sqrt{3}}\sum_{j}e^{-2\pi i jk/3}\sigma_j^z$ (and analogously for the spin raising $S^+$ and lowering $S^-$operators), we
-bring Eq.~\eqref{after-momentum-translation} to
+bring Eq.~\eqref{eq:after-momentum-translation} to
 \begin{equation}
-\label{after-fourier}
+\label{eq:after-fourier}
   \begin{aligned}
     &\hat H_{\text{FT}} = \epsilon \sum_{k=0}^{2} S^{z}(k)
       + \Omega_{\text{QB}} \sum_{k=0}^{2} \hat b^{\dagger}(k) \hat b(k)
@@ -213,7 +213,7 @@ where The zero-momentum ($k=0$) boson mode
 couples to the $S^z(k=0)$, which is conserved. Hence, it actually decouples from the rest system. We are left with only two boson modes that are required for the $\Zthree$ Rabi model.
 
 \paragraph{Restriction to $\mathcal H_{\text{QB},1}$.}
-To restrict the Hamiltonian~\eqref{after-fourier} to the single-excitation sector $\mathcal{H}_{\text{QB},1}$~\eqref{eq:single-excitation-sector}, we identify the single-excitatioin spin states with qutrit states, $\ket{0} \equiv \ket{\uparrow\downarrow\downarrow}$, $ \ket{1} \equiv \ket{\downarrow\uparrow\downarrow}$, and $ \ket{2} \equiv \ket{\downarrow\downarrow\uparrow} $. After discarding constants and the decoupled mode, we obtain
+To restrict the Hamiltonian~\eqref{eq:after-fourier} to the single-excitation sector $\mathcal{H}_{\text{QB},1}$~\eqref{eq:single-excitation-sector}, we identify the single-excitatioin spin states with qutrit states, $\ket{0} \equiv \ket{\uparrow\downarrow\downarrow}$, $ \ket{1} \equiv \ket{\downarrow\uparrow\downarrow}$, and $ \ket{2} \equiv \ket{\downarrow\downarrow\uparrow} $. After discarding constants and the decoupled mode, we obtain
 \begin{equation}
   \begin{aligned}
     &\hat H_{\text{QB},1} = \Omega_{\text{QB}} \sum_{k=1}^{2} \hat b^{\dagger}(k)
@@ -232,7 +232,7 @@ bosonic $\mathrm{U(1)}$ phase rotation, brings the Hamiltonian to the canonical
 $\Zthree$ two-mode Rabi form,
 
 \begin{align}
-\label{effective-rabi}
+\label{eq:effective-rabi}
     &\hat H_{\text{R}} = \Omega_{\text{QB}}
       \bigl( \hat a^{\dagger}_1 \hat a_1 + \hat a^{\dagger}_2 \hat a_2 \bigr)
       + g \bigl( Z + Z^{\dagger} \bigr) \notag
@@ -243,7 +243,7 @@ $\Zthree$ two-mode Rabi form,
 \end{align}
 where we identified $\hat a_k \equiv \hat b(k)$ and $\hat a_k^{\dagger} \equiv \hat b^{\dagger}(k)$ for $k = 1,2$. The identification with Eq.~(\ref{eq:2-mode-z3-Rabi}) leads to
 \begin{equation}
-\label{QB-RM-parameter-mapping}
+\label{eq:QB-RM-parameter-mapping}
   \Omega_R = \Omega_{\text{QB}},
   \quad B = g,
   \quad \phi = 0,
@@ -252,7 +252,7 @@ where we identified $\hat a_k \equiv \hat b(k)$ and $\hat a_k^{\dagger} \equiv \
 
 For the sake of completeness, we provide the ``magnetic'' term explicitly,
 \begin{equation}
-\label{superconducting-magnetic-term}
+\label{eq:superconducting-magnetic-term}
   g \bigl( Z + Z^{\dagger} \bigr) =
   \begin{pmatrix}
     2 g & 0 & 0 \\
@@ -261,8 +261,8 @@ For the sake of completeness, we provide the ``magnetic'' term explicitly,
   \end{pmatrix}.
 \end{equation}
 
-As shown, the single-excitation sector $\mathcal{H}_{\text{QB},1}$ of the QB ring~\eqref{physical-hamiltonian} indeed simulates the $\Zthree$ Rabi model~\eqref{eq:2-mode-z3-Rabi}. Moreover, the mapping is exact. We emphasize superconducting qubits as a natural platform for engineering the
-interaction~\eqref{physical-hamiltonian}, although analogous constructions are
+As shown, the single-excitation sector $\mathcal{H}_{\text{QB},1}$ of the QB ring~\eqref{eq:physical-hamiltonian} indeed simulates the $\Zthree$ Rabi model~\eqref{eq:2-mode-z3-Rabi}. Moreover, the mapping is exact. We emphasize superconducting qubits as a natural platform for engineering the
+interaction~\eqref{eq:physical-hamiltonian}, although analogous constructions are
 possible in, for example, optomechanical settings \cite{sedov_chiral_2020}.
 
 
@@ -287,19 +287,19 @@ As a result, the $\Ztwo$ Rabi model based on the anharmonic oscillator does not 
 These obstacles make an experimental $\Zn$‑Rabi realization non‑trivial, motivating our proposal. The rationale provided in this section is in no way a formal proof. However, the argument should serve as an intuition as to why the $\Zthree$ Rabi is less straightforward to engineer than its more well-known analogue. The model we proposed in the previous section solves this problem by having an inherent $\Zthree$ symmetry. It originates from the translational symmetry of a ring.
 
 \subsection{Superconducting circuit implementation}
-\label{superconducting-implementation}
+\label{sec:superconducting-implementation}
 
-In this section, we discuss how to implement the QB ring Hamiltonian~\eqref{physical-hamiltonian} in a superconducting-qubit system. The obvious choice for boson modes is a cavity (modeled by an LC circuit for our purposes). For the qubit ($\sigma_i$)  we consider superconducting charge qubits \cite{bouchiat_quantum_1998,nakamura_coherent_1999,lehnert_measurement_2003,makhlin_quantumstate_2001}, because we want the qubit eigenstate to be a charge state. An extensive discussion on the charge qubits we use is provided in App. \ref{app:charge-qubit}. Here, we only want to comment that the qubit eigenstates are $|0\rangle, |1\rangle$ defined by $\hat n |0\rangle = 0, \, \hat n |1\rangle = |1\rangle$, where $\hat n$ is the capacitor charge operator. Below, to denote a linear span of these states we use $\mathcal{V}_k = \operatorname{Span}\{|0\rangle_k, \, |1\rangle_k\}$, where $k$ is the number of the qubit.
+In this section, we discuss how to implement the QB ring Hamiltonian~\eqref{eq:physical-hamiltonian} in a superconducting-qubit system. The obvious choice for boson modes is a cavity (modeled by an LC circuit for our purposes). For the qubit ($\sigma_i$)  we consider superconducting charge qubits \cite{bouchiat_quantum_1998,nakamura_coherent_1999,lehnert_measurement_2003,makhlin_quantumstate_2001}, because we want the qubit eigenstate to be a charge state. An extensive discussion on the charge qubits we use is provided in App. \ref{app:charge-qubit}. Here, we only want to comment that the qubit eigenstates are $|0\rangle, |1\rangle$ defined by $\hat n |0\rangle = 0, \, \hat n |1\rangle = |1\rangle$, where $\hat n$ is the capacitor charge operator. Below, to denote a linear span of these states we use $\mathcal{V}_k = \operatorname{Span}\{|0\rangle_k, \, |1\rangle_k\}$, where $k$ is the number of the qubit.
 
-Fig.~\ref{fig:superconducting-Rabi} shows a superconducting realization of the three‑site QB ring, discussed in Sec.~\ref{sec:physical-implementation}. Each horizontal (as shown in Fig.~\ref{fig:superconducting-Rabi}) branch of the circuit corresponds to site $i = 0,1,2$ of the qubit-boson ring. The $i$th boson $\mathrm{B}i$ and qubit $\mathrm{Q}i$ are implemented by the LC circuit and SC qubit on the $i$th branch respectively. The JJs on on the vertical (once again as shown in Fig.~\ref{fig:superconducting-Rabi}) segments of the circuit on the right of Fig.~\ref{fig:superconducting-Rabi} are responsible for the interaction term in $H_{QB}$~\eqref{physical-hamiltonian} \cite{siewert_aspects_2000,rasmussen_controllable_2019,shafranjuk_twoqubit_2006,allman_tunable_2014,hu_controllable_2007}. On Fig.~\ref{fig:superconducting-Rabi}, the characteristic parameters of every circuit element are also shown: LC circuit's conductor and inductor have capacitance $C_{\text{B}}$ and inductance $L_{\text{B}}$ respectively. The qubit's JJ and capacitance have critical current $I_{\text{Q}}$ and capacitance $C_{\text{Q}}$ respectively. The coupling JJs on the right have critical current $I_{\text{R}}$. For clarity, we omit any elements that are necessary for an actual experimental implementation, e.g., read‑out resonators, flux‑bias lines, and filtering components.
+Fig.~\ref{fig:superconducting-Rabi} shows a superconducting realization of the three‑site QB ring, discussed in Sec.~\ref{sec:physical-implementation}. Each horizontal (as shown in Fig.~\ref{fig:superconducting-Rabi}) branch of the circuit corresponds to site $i = 0,1,2$ of the qubit-boson ring. The $i$th boson $\mathrm{B}i$ and qubit $\mathrm{Q}i$ are implemented by the LC circuit and SC qubit on the $i$th branch respectively. The JJs on on the vertical (once again as shown in Fig.~\ref{fig:superconducting-Rabi}) segments of the circuit on the right of Fig.~\ref{fig:superconducting-Rabi} are responsible for the interaction term in $H_{QB}$~\eqref{eq:physical-hamiltonian} \cite{siewert_aspects_2000,rasmussen_controllable_2019,shafranjuk_twoqubit_2006,allman_tunable_2014,hu_controllable_2007}. On Fig.~\ref{fig:superconducting-Rabi}, the characteristic parameters of every circuit element are also shown: LC circuit's conductor and inductor have capacitance $C_{\text{B}}$ and inductance $L_{\text{B}}$ respectively. The qubit's JJ and capacitance have critical current $I_{\text{Q}}$ and capacitance $C_{\text{Q}}$ respectively. The coupling JJs on the right have critical current $I_{\text{R}}$. For clarity, we omit any elements that are necessary for an actual experimental implementation, e.g., read‑out resonators, flux‑bias lines, and filtering components.
 
 \begin{figure}[t]
   \includegraphics[width=\linewidth]{pics/SC_Rabi_circuit_with_contours.pdf}
-  \caption{Superconducting circuit implementation of the 2-mode $\Zthree$ Rabi model $\hat H_{\text{R}}$. The LC circuits $(L_{\text{B}}, C_{\text{B}})$ host the boson modes B1, B2, and B3 (marked by the magenta color); the charge qubits $(I_{\text{Q}}, C_{\text{Q}})$ correspond to the qubit degrees of freedom Q1, Q2, and Q3 (marked by the cyan color); Josephson junctions $I_{\text{Rabi}}$ are responsible for the interaction term in the qubit-boson ring. Altogether, the circuit is described by the Hamiltonian (\ref{physical-hamiltonian}).}
+  \caption{Superconducting circuit implementation of the 2-mode $\Zthree$ Rabi model $\hat H_{\text{R}}$. The LC circuits $(L_{\text{B}}, C_{\text{B}})$ host the boson modes B1, B2, and B3 (marked by the magenta color); the charge qubits $(I_{\text{Q}}, C_{\text{Q}})$ correspond to the qubit degrees of freedom Q1, Q2, and Q3 (marked by the cyan color); Josephson junctions $I_{\text{Rabi}}$ are responsible for the interaction term in the qubit-boson ring. Altogether, the circuit is described by the Hamiltonian~\eqref{eq:physical-hamiltonian}.}
   \label{fig:superconducting-Rabi}
 \end{figure}
 
-Next, we argue why this circuit models the Hamiltonian~\eqref{physical-hamiltonian}. Without the coupling JJs, the LC circuits and qubits do not interact with each other and are described by a free Hamiltonian:
+Next, we argue why this circuit models the Hamiltonian~\eqref{eq:physical-hamiltonian}. Without the coupling JJs, the LC circuits and qubits do not interact with each other and are described by a free Hamiltonian:
 \begin{equation}
     H = \sum_{i = 0}^2  H_{LC, i}(\hat \phi_i, \hat q_i) + \sum_{i = 0}^2 H_{Q,i}(\hat \varphi_i, \hat n_i),
 \end{equation}
@@ -335,7 +335,7 @@ As we are only interested in qubit states $|0\rangle_k,\, |1\rangle_k$, we restr
 \end{equation}
 Here we used the fact that $e^{\pm i\hat\phi}$ acts as a raising/lowering operator for the charge qubit: $e^{i\hat\phi}|_{\mathcal{V}} = \sigma^+$. Hence the need for charge qubits rather than flux or phase qubits.
 
-The Josephson junction coupling between two pairs of an LC circuits and a charge qubits gives us precisely the interaction term we wanted. As a result, we conclude that the system depicted in Fig. \ref{fig:superconducting-Rabi} is described by the Hamiltonian (\ref{physical-hamiltonian}).  The qubit-boson ring couplings can be expressed by the circuit parameters:
+The Josephson junction coupling between two pairs of an LC circuits and a charge qubits gives us precisely the interaction term we wanted. As a result, we conclude that the system depicted in Fig.~\ref{fig:superconducting-Rabi} is described by the Hamiltonian~\eqref{eq:physical-hamiltonian}.  The qubit-boson ring couplings can be expressed by the circuit parameters:
 \begin{equation}
 \begin{aligned}
     &\epsilon = \frac{\delta}{2 C_Q},\,
@@ -345,11 +345,11 @@ The Josephson junction coupling between two pairs of an LC circuits and a charge
 \end{equation}
 For details of the $\epsilon$ computation, see App.~\ref{app:charge-qubit}. 
 
-Finally, applying Sec.~\ref{sec:physical-implementation} argument we deduce that the circuit is described by the $\Zthree$ Rabi model. Two practical notes follow from this construction. (i) Replacing each coupling JJ by a dc SQUID makes $g \propto I_{\mathrm{R}}$ tunable (including sign control via flux bias) and allows us to imprint controlled phase offsets around the ring, thereby realizing the ``magnetic'' term with a phase different from Eq.~\eqref{superconducting-magnetic-term}. (ii) The device can be initialized at $g\simeq 0$ with the three qubits and three LC modes effectively decoupled; adiabatic ramp of $g$ then reach the target operating point, while standard dispersive readout on auxiliary resonators provides state discrimination. Taken together, these considerations make the circuit of Fig.~\ref{fig:superconducting-Rabi} a realistic platform for probing $\Zthree$ Rabi model dynamics across coupling regimes without invoking a rotating-wave approximation.
+Finally, applying Sec.~\ref{sec:physical-implementation} argument we deduce that the circuit is described by the $\Zthree$ Rabi model. Two practical notes follow from this construction. (i) Replacing each coupling JJ by a dc SQUID makes $g \propto I_{\mathrm{R}}$ tunable (including sign control via flux bias) and allows us to imprint controlled phase offsets around the ring, thereby realizing the ``magnetic'' term with a phase different from Eq.~\eqref{eq:superconducting-magnetic-term}. (ii) The device can be initialized at $g\simeq 0$ with the three qubits and three LC modes effectively decoupled; adiabatic ramp of $g$ then reach the target operating point, while standard dispersive readout on auxiliary resonators provides state discrimination. Taken together, these considerations make the circuit of Fig.~\ref{fig:superconducting-Rabi} a realistic platform for probing $\Zthree$ Rabi model dynamics across coupling regimes without invoking a rotating-wave approximation.
 
 
 \subsection{Optomechanical implementation}
-\label{optomechanical-implementation}
+\label{sec:optomechanical-implementation}
 
 \begin{figure}
     \includegraphics[width=0.8\linewidth]{pics/optomechanical_Rabi_pic.pdf}
@@ -368,7 +368,7 @@ The optomechanical model in question is described by the following Hamiltonian:
     &+\gamma \sum_{k, j=0}^2 \left[\sigma_j^{+} \hat{c}_k e^{i k\left[R \phi_j+\hat x_j\right]}+\text {h.c.}\right] \text {, }
 \end{aligned}   
 \end{equation}
-where $\hat c_j^\dagger$ ($\hat c_j$) is the waveguide photon creation (annihilation) operator, $\sigma^z_j$ (also $\sigma_j^+$ and $\sigma_j^-$) is the ion spin degree of freedom, and $\hat b^{\dagger}_j$ ($\hat b_j$) are the ion vibrational phonon creation (annihilation) operators with $\hat x_j = (\hat b_j + \hat b_j^{\dagger})/\sqrt{2}$ being the canonical coordinate operator. The parameters are the following: 
+where $\hat c_j^\dagger$ ($\hat c_j$) is the waveguide photon creation (annihilation) operator; $\sigma^z_j$,$\sigma_j^+$, and $\sigma_j^-$ is the ion spin degree of freedom; $\hat b^{\dagger}_j$ ($\hat b_j$) are the ion vibrational phonon creation (annihilation) operators with $\hat x_j = (\hat b_j + \hat b_j^{\dagger})/\sqrt{2}$ being the canonical coordinate operator. The parameters are the following: 
 $\zeta_k = v k$ is the waveguide photon dispersion, $\epsilon$ is the spin Zeeman splitting, $\Omega_{\text{OM}}$ is the phonon frequency, and $\gamma$ is the coupling strength.
 
 Using the Schrieffer-Wolff transformation \cite{bravyi_schrieffer_2011}, we can integrate out the photons degrees of freedom to get the Hamiltonian in the form we want:
@@ -378,7 +378,7 @@ Using the Schrieffer-Wolff transformation \cite{bravyi_schrieffer_2011}, we can 
 & -\frac{\gamma^2}{2v} \sum_{i<j}\left[i \sigma_i^{+} \sigma_j^- e^{i q R \phi_{i j}} e^{i \eta\left(\hat{b}_i+\hat{b}_i^{\dagger}-\hat{b}_j-\hat{b}_j^{\dagger}\right)}+\text {h.c.}\right].
 \end{aligned}
 \end{equation}
-The Hamiltonian is a bit different from (\ref{physical-hamiltonian}). It is treated in App. \ref{app:arbitrary-interaction-summary} and gives rise to the following $\Zthree$ Rabi model:
+The Hamiltonian is a bit different from~\eqref{eq:physical-hamiltonian}. It is treated in App. \ref{app:arbitrary-interaction-summary} and gives rise to the following $\Zthree$ Rabi model:
 \begin{equation}
 \begin{aligned}
     &\hat H_{\text{R}'}= - \frac{\gamma^2}{2v} (e^{-5\pi i/6} Z + e^{5\pi i/6} Z^{\dagger}) \\
@@ -394,9 +394,9 @@ We can explicitly write down the ``magnetic'' term
         \frac{\sqrt{3}\gamma^2}{2v} & 0 & 0 \\ 0 & -\frac{\sqrt{3}\gamma^2}{2v} & 0 \\ 0 & 0 & 0 
     \end{pmatrix}.
 \end{equation}
-As one can see, the non-zero ``magnetic'' term's phase $\varphi$ leads to all the eigenvalues being non-degenerate. Compare it to Eq. (\ref{superconducting-magnetic-term}).
+As one can see, the non-zero ``magnetic'' term's phase $\varphi$ leads to all the eigenvalues being non-degenerate. Compare it to Eq.~\eqref{eq:superconducting-magnetic-term}.
 
-As a result the optomechanical system~\eqref{eq:optomechanical-qb-ring} provides another way to realize the $\Zthree$ Rabi model~\eqref{eq:2-mode-z3-Rabi}. This implementation uses the waveguide as a mediator for the qubit-boson interaction $V_{\text{QB}}$~\eqref{physical-hamiltonian}, which is a bit more complicated compared to the superconducting implementation (Fig.~\ref{fig:superconducting-Rabi}). Nevertheless, the optomechanical system~\eqref{eq:optomechanical-qb-ring} still models the Rabi model through the mechanism described in Sec.~\ref{sec:physical-implementation}.
+As a result the optomechanical system~\eqref{eq:optomechanical-qb-ring} provides another way to realize the $\Zthree$ Rabi model~\eqref{eq:2-mode-z3-Rabi}. This implementation uses the waveguide as a mediator for the qubit-boson interaction $V_{\text{QB}}$~\eqref{eq:physical-hamiltonian}, which is a bit more complicated compared to the superconducting implementation (Fig.~\ref{fig:superconducting-Rabi}). Nevertheless, the optomechanical system~\eqref{eq:optomechanical-qb-ring} still models the Rabi model through the mechanism described in Sec.~\ref{sec:physical-implementation}.
 
 
 
@@ -404,7 +404,7 @@ As a result the optomechanical system~\eqref{eq:optomechanical-qb-ring} provides
 \label{sec:potts-model}
 
 \subsection{Theoretical description}
-\label{theoretical-potts}
+\label{sec:theoretical-potts}
 
 
 The $\Zthree$ Potts model \cite{wu_potts_1982} is a one-dimensional chain of three-level systems -- qutrits -- with a global $\Zthree$ symmetry. It  originates from statistical physics as a straightforward generalization of the Ising model  \cite{wu_potts_1982,baxter_critical_1982}. Nowadays, the Potts model often appears in the context of qudit quantum computations \cite{aharonov_polynomial_2007,okada_efficient_2019}. However, the direct experimental realization of the Potts model still does not exist. One of the goals of this paper is to propose such an experimental realization based on $\Zthree$ Rabi models. To achieve this, we generalize the idea of building an Ising model by coupling a chain of $\Ztwo$ Rabi models, proposed by Hwang \cite{hwang_largescale_2013}, to the $\Zthree$-symmetric case.
@@ -412,18 +412,18 @@ The $\Zthree$ Potts model \cite{wu_potts_1982} is a one-dimensional chain of thr
 The $\Zthree$ Potts model Hamiltonian is
 \begin{equation}
 \begin{aligned}
-\label{potts-hamiltonian}
+\label{eq:potts-hamiltonian}
 H_{\text{P}} =& f_{\text{P}} \sum\limits_{n=1}^L \left(e^{i\phi}Z_n + e^{-i\phi}Z_n^{\dagger}\right) \\
   &+  J_{\text{P}} \sum\limits_{n=1}^L \left( X_n X_{n+1}^{\dagger} + X_n^{\dagger} X_{n+1}\right),
 \end{aligned}
 \end{equation}
-where $X_n$ and $Z_n$ are the shift and clock matrices~\eqref{shift-clock-matreces} acting on the $n$th qutrit. $f _\text{P}$ describes the strength of a single-site potential, $J_{\text{P}}$ is the coupling strength of $\Zthree$-symmetric nearest-neighbor interaction.
+where $X_n$ and $Z_n$ are the shift and clock matrices~\eqref{eq:shift-clock-matreces} acting on the $n$th qutrit. $f _\text{P}$ describes the strength of a single-site potential, $J_{\text{P}}$ is the coupling strength of $\Zthree$-symmetric nearest-neighbor interaction.
 
-As we have already discussed before, it is difficult to obtain a $\Zthree$ symmetry in an arbitrary three-level system chain. But we have already learned how to construct a $\Zthree$ Rabi model. We use it as a building block for the $\Zthree$ Potts model. We assemble a chain of the $\Zthree$ Rabi models. Then, the three cat-states in the $n$th $\Zthree$ Rabi models (\ref{three-cat-states}) correspond to the three states on the $n$th site of the Potts model $ |j\rangle_n = |\psi_j\rangle_n $ for $j=0,\, 1,\, 2$. In the deep-strong limit of the Rabi model~\eqref{eq:2-mode-z3-Rabi}, $ \lambda \gg \Omega_R$,  the higher energy states are effective decoupled from $|\psi_j\rangle$ states.
+As we have already discussed before, it is difficult to obtain a $\Zthree$ symmetry in an arbitrary three-level system chain. But we have already learned how to construct a $\Zthree$ Rabi model. We use it as a building block for the $\Zthree$ Potts model. We assemble a chain of the $\Zthree$ Rabi models. Then, the three cat-states in the $n$th $\Zthree$ Rabi models~\eqref{eq:three-cat-states} correspond to the three states on the $n$th site of the Potts model $ |j\rangle_n = |\psi_j\rangle_n $ for $j=0,\, 1,\, 2$. In the deep-strong limit of the Rabi model~\eqref{eq:2-mode-z3-Rabi}, $ \lambda \gg \Omega_R$,  the higher energy states are effective decoupled from $|\psi_j\rangle$ states.
 
 The main reason why it is convenient to build the Potts model from the Rabi models is that the boson degrees of freedom in the Rabi model allow us to obtain a $\Zthree$-symmetric interaction. The reasoning is simple: the Rabi model's $\Zthree$ symmetry acting on bosons is a residue of a usual $\mathrm{U(1)}$ boson symmetry. Consequently, if we take a $\mathrm{U(1)}$ symmetric interaction of the boson modes on the neighbor sites in the Rabi model chain, then it is $\Zthree$-symmetric by default. And the simplest $\mathrm{U(1)}$-symmetric boson interaction is just a hopping term $\hat a_n^{\dagger} \hat a_{n+1} + \textrm{h.c.}$ As a result, to obtain the $\Zthree$ Potts model we need to take a chain of $\Zthree$ Rabi models and couple them by the boson hopping term:
 \begin{equation}
-\label{coupled-rabi}
+\label{eq:coupled-rabi}
 \begin{aligned}
     &H_{\text{R chain}} = \\
     &\sum\limits_{n=1}^L H_{\text{R}, n} + J \sum\limits_{n=1}^L \sum\limits_{k=1}^2\left( \hat a_{n,k}^{\dagger} \hat a_{n+1,k} + \hat a_{n+1,k}^{\dagger} \hat a_{n,k}\right),
@@ -435,7 +435,6 @@ Within the Rabi qutrit subspace,  $\hat a_{n,k}$ acts as a permutation between t
 \begin{equation}
     \hat a_{n,k} |\psi_i\rangle_n = (\lambda/\Omega_{\textrm{R}})|\psi_{i+1}\rangle_n. 
 \end{equation}
-
 For the creation operator it is a little bit more complicated:
 \begin{equation}
 \begin{aligned}
@@ -456,17 +455,16 @@ Therefore, we have $J_{\text{P}} = 3(\lambda/\Omega_{\textrm{R}})^2 J$.
 
 
 \subsubsection{Underlying qubit-boson ring}
+\label{sec:underlying-qb-ring}
 
-Considering that the Rabi models in the chain are made from a QB ring\eqref{physical-hamiltonian}, we need to show how to obtain the boson-hopping interaction (\ref{coupled-rabi}) in terms of the QB-ring degrees of freedom.
-
-It turns out to be completely straightforward. The hopping term between the bosons $\hat b_{n,j}$ and $\hat b_{n,j}^{\dagger}$ in the QB rings give us precisely the hopping term between the $\Zthree$ Rabi model bosons $\hat a_{n,k}$ and $\hat a_{n,k}^{\dagger}$, because the Fourier transform does not change the form of the boson hopping interaction:
+In the previous section, we showed how to construct the $\Zthree$ Potts model out of a chain of the $\Zthree$ Rabi models. However, each Rabi model is itself implemented by a QB ring [see Sec.~\ref{sec:physical-implementation}]. Here, we show how the underlying QB rings should be coupled to get the boson-hopping interaction~\eqref{eq:coupled-rabi} for the Rabi models. It turns out to be rather straightforward. The hopping term between the QB ring bosons $\hat b_{n,j}$ and $\hat b_{n,j}^{\dagger}$ give us precisely the hopping term between the $\Zthree$ Rabi model bosons $\hat a_{n,k}$ and $\hat a_{n,k}^{\dagger}$ since the Fourier transform does not change the form of the boson hopping interaction:
 \begin{equation}
 \begin{aligned}
     &\sum\limits_{j=0}^2 \left(\hat b_{n,j}^{\dagger} \hat b_{n+1,j} + \hat b_{n+1,j}^{\dagger} \hat b_{n,j}\right) \\
     &=\sum\limits_{k=0}^{2} \left(\hat b_{n}^{\dagger}(k) \hat b_{n+1}(k) + \hat b_{n+1}^{\dagger}(k) \hat b_{n}(k)\right),
 \end{aligned}
 \end{equation}
-where $\hat b_{n}(k)$ and $\hat b_n^{\dagger}(k)$ are the Fourier transformed QB ring boson modes. But we know that the Rabi model boson modes are precisely the first and the second their components, $\hat a_{n,k} = \hat b_n(k)$ and $\hat a_{n,k}^{\dagger} = \hat b_n(k)$ for $k =1,2$ [see Eq.~\eqref{effective-rabi}]. Therefore, we obtain precisely the interaction~\eqref{coupled-rabi} we wanted. Also, we have a hopping term for the extra boson mode $\hat b_{n}(0), \hat b^{\dagger}_{n}(0)$, which decouples the same way it did in Sec. \ref{sec:physical-implementation}.
+where $\hat b_{n}(k)$ and $\hat b_n^{\dagger}(k)$ are the Fourier transformed QB ring boson modes. But we know that the Rabi model boson modes are precisely the first and the second their components, $\hat a_{n,k} = \hat b_n(k)$ and $\hat a_{n,k}^{\dagger} = \hat b_n(k)$ for $k =1,2$ [see Eq.~\eqref{eq:effective-rabi}]. Therefore, we obtain precisely the interaction~\eqref{eq:coupled-rabi} we wanted. Also, we have a hopping term for the extra boson mode $\hat b_{n}(0), \hat b^{\dagger}_{n}(0)$, which decouples the same way it did in Sec. \ref{sec:physical-implementation}.
 
 The mapping between the parameters is the following:
 \begin{equation}
@@ -481,20 +479,20 @@ The mapping between the parameters is the following:
 
 \begin{figure}[t]
     \includegraphics[width=\linewidth]{pics/SC_Potts_circuit_with_contours.pdf}
-    \caption{Superconducting circuit implementation of the Potts model. It is composed from a chain of the $\Zthree$ Rabi model superconducting circuits $\mathrm{R1}$, $\mathrm{R2}$, etc [see Fig.~\ref{fig:superconducting-Rabi}]. The Potts model circuit is described by the Hamiltonian (\ref{coupled-rabi}). Subscript ``B'' denote elements corresponding to boson degrees of freedom; subscript ``Q'' denote qubit elements; subscript ``R'' denote elements responsible for interaction in qubit-boson ring; subscript ``P'' denote elements responsible for interaction in Potts model.}
+    \caption{Superconducting circuit implementation of the Potts model. It is composed from a chain of the $\Zthree$ Rabi model superconducting circuits $\mathrm{R1}$, $\mathrm{R2}$, etc [see Fig.~\ref{fig:superconducting-Rabi}]. The Potts model circuit is described by the Hamiltonian~\eqref{eq:coupled-rabi}. Subscript ``B'' denote elements corresponding to boson degrees of freedom; subscript ``Q'' denote qubit elements; subscript ``R'' denote elements responsible for interaction in qubit-boson ring; subscript ``P'' denote elements responsible for interaction in Potts model.}
     \label{fig:superconducting-potts}
 \end{figure}
 
-It is straightforward to implement the Potts model based on superconducting circuits. We consider a chain of superconducting circuits depicted in Fig. \ref{fig:superconducting-Rabi}. Next, we need to couple the neighbor Rabi models with a boson hopping term to get the Hamiltonian (\ref{coupled-rabi}). To do it, we connect the neighbor Rabi models by inductor coupling (Fig. \ref{fig:superconducting-potts}). Although capacitive coupling is more common, here it induces unwanted  all-to-all coupling. On the other hand, the inductor coupling leads us to the hopping term we want. First of all, the Hamiltonian terms corresponding to the inductors are:
+Having explored the theoretical construction of the Potts model based on a chain of the Rabi models, here we show how to implement the Potts model based on superconducting circuits. We consider a chain of the superconducting circuits simulating the $\Zthree$ Rabi models [see Sec.~\ref{sec:superconducting-implementation}]. Next, we need to couple the neighbor Rabi models with a boson hopping term to get the Hamiltonian~\eqref{eq:coupled-rabi}. As we have learned in Sec.~\ref{sec:underlying-qb-ring}, we have to couple the bosons modes of the neighbor QB rings pairwise to do it. Therefore, we connect the corresponding LC circuits of the neighbor QB rings by the inductive coupling (Fig.~\ref{fig:superconducting-potts}). Although capacitive coupling is more common, here it induces unwanted  all-to-all coupling. On the other hand, the inductive coupling leads us to the hopping term we want. First of all, the Hamiltonian terms corresponding to the inductors are:
 \begin{equation}
 \begin{aligned}
     &V_{\text{P},n,j} = \frac{1}{2L_{\text{P}}} (\hat \phi_{n+1,j} - \hat \phi_{n,j})^2 = \frac{\hat \phi_{n,j}^2 + \hat \phi_{n+1,j}^2}{2L_{\text{P}}} \\
-    &+ \frac{\hat b^{\dagger}_{n,j} \hat b^{\dagger}_{n+1,j} + \hat b^{\dagger}_{n,j} \hat b_{n+1,j} + \hat b_{n,j} \hat b^{\dagger}_{n+1,j} + \hat b_{n,j} \hat b_{n+1,j}}{L_{\text{P}}C_{\text{B}}\Omega_{QB}} 
+    &- \frac{\hat b^{\dagger}_{n,j} \hat b^{\dagger}_{n+1,j} + \hat b^{\dagger}_{n,j} \hat b_{n+1,j} + \hat b_{n,j} \hat b^{\dagger}_{n+1,j} + \hat b_{n,j} \hat b_{n+1,j}}{4L_{\text{P}}C_{\text{B}}\Omega_{QB}} 
 \end{aligned}
 \end{equation}
 where we expressed the flux operator through the creation and annihilation operators, $\hat \phi_{n,j} = (\hat b_{n,j} + \hat b_{n,j}^{\dagger})/\sqrt{2C_{\text{B}} \Omega_{QB}}$.
 
-We ignore the $ \hat \phi_n^2 $ and $ \hat \phi_{n+1}^2 $ terms because they simply renormalize the Rabi model parameters. Additionally, the inductor coupling produces undesired terms $\hat b^{\dagger}_{n,j} \hat b^{\dagger}_{n+1,j}$ and $\hat b_{n,j} \hat b_{n+1,j}$. However, we can use Rotating Wave Approximation (RWA) to eliminate them. For the RWA to be applicable, we need $\Omega_{QB} = \sqrt{L_{\text{B}} C_{\text{B}}} \gg (L_{\text{P}} C_{\text{B}} \Omega_{\text{QB}})^{-1}$. After applying RWA, we are left with the hopping term between the boson modes of the neighbor Rabi model. Consequently, in line with Sec. \ref{theoretical-potts} the superconducting circuit in question is modeled by the Potts model. The coupling parameters of the resulting Potts model could be expressed through the circuit parameters:
+We ignore the $ \hat \phi_n^2 $ and $ \hat \phi_{n+1}^2 $ terms because they simply renormalize the Rabi model parameters. Additionally, the inductor coupling produces undesired terms $\hat b^{\dagger}_{n,j} \hat b^{\dagger}_{n+1,j}$ and $\hat b_{n,j} \hat b_{n+1,j}$. However, we can use the Rotating Wave Approximation (RWA) to eliminate them. For RWA to be applicable, we need $\Omega_{QB} = \sqrt{L_{\text{B}} C_{\text{B}}} \gg (L_{\text{P}} C_{\text{B}} \Omega_{\text{QB}})^{-1}$. After applying RWA, we are left precisely with the hopping term between the boson modes of the neighbor Rabi model. Consequently, in line with Sec.~\ref{sec:theoretical-potts} the superconducting circuit in Fig.~\ref{fig:superconducting-potts} models the $\Zthree$ Potts model. The coupling parameters of the resulting Potts model could be expressed through the circuit parameters:
 \begin{equation}
 \begin{aligned}
     &f_{\text{P}} = \frac{I_{\text{R}}}{2} \exp\left(-\frac{1}{2}\sqrt{\frac{L_{\text{B}}}{C_{\text{B}}}}\right), \\
@@ -512,7 +510,7 @@ We ignore the $ \hat \phi_n^2 $ and $ \hat \phi_{n+1}^2 $ terms because they sim
     \label{fig:optomechanical-potts}
 \end{figure}
 
-We can repeat the same procedure for the optomechanical system. However, it is a bit more peculiar, because of the circular waveguide in the optomechanical Rabi model. To build the optomechanical $\Zthree$ Potts model we arrange the optomechanical $\Zthree$ Rabi model concentrically (see Fig. \ref{fig:optomechanical-potts}). On the one hand, the radius of the waveguide does not affect the parameters of the model, on the other hand, placing the ions of the neighbor Rabi models close to each other creates phonon-phonon interaction through the ion Coulomb interaction \cite{schneider_experimental_2012,timm_dynamics_2023}. The phonon-phonon interaction between the neighboring Rabi models leads to the Hamiltonian (\ref{coupled-rabi}) and consequently to the $\Zthree$ Potts model as described before.
+We can repeat the same procedure for the optomechanical system. However, it is a bit more peculiar, because of the circular waveguide in the optomechanical Rabi model. To build the optomechanical $\Zthree$ Potts model we arrange the optomechanical $\Zthree$ Rabi model concentrically (see Fig. \ref{fig:optomechanical-potts}). On the one hand, the radius of the waveguide does not affect the parameters of the model, on the other hand, placing the ions of the neighbor Rabi models close to each other creates phonon-phonon interaction through the ion Coulomb interaction \cite{schneider_experimental_2012,timm_dynamics_2023}. The phonon-phonon interaction between the neighboring Rabi models leads to the Hamiltonian~\eqref{eq:coupled-rabi} and consequently to the $\Zthree$ Potts model as described before.
 
 
 \subsection{Chiral Potts model and parafermions}
@@ -520,53 +518,45 @@ We can repeat the same procedure for the optomechanical system. However, it is a
 
 In this subsection, we want to briefly overview the chiral Potts model. It is a generalization of the ordinary Potts model that has a chiral nearest-neighbour interaction:
 \begin{equation}
-\label{chiral-potts-hamiltonian}
+\label{eq:chiral-potts-hamiltonian}
 \begin{aligned}
     H_{\text{chPotts}} = &f'\sum_{n=1}^L (e^{i\phi'} Z_n + e^{-i\phi'} Z_n^{\dagger}) \\
     &+ J' \sum (e^{i\theta'} X_n X_{n+1}^{\dagger} + e^{-i\theta'} X_n^{\dagger} X_{n+1}).
 \end{aligned}
 \end{equation}
-It is simply the Potts model (\ref{potts-hamiltonian}) with a complex parameter $J'$. 
+In other words, it is simply the Potts model~\eqref{eq:potts-hamiltonian} with a complex parameter $J'$. 
 
-The chiral Potts model exhibits richer physics compared to the ordinary one. In particular, it can host parafermion physics. We discuss it more below, but first, we need to discuss how to obtain this chiral interaction, because it is quite challenging.
+In the construction described in Sec.~\ref{sec:potts-model}, the interaction parameter $J'$ originates from the neighbor QB ring boson interaction. Hence, if we want to engineer the chiral Potts model, we have to obtain a chiral boson-hopping term. To do it we need to break the time-reversal symmetry. It is difficult to do directly. However, if we consider a time-periodical coupling, then the effective interaction can be chiral \cite{roushan_chiral_2017, metelmann_nonreciprocal_2015, owens_quarterflux_2018}. A general way to obtain the chiral boson hopping was proposed in \cite{bermudez_synthetic_2011}. More specifically, the chiral boson hopping in the superconducting circuits can also be implemented \cite{}. \todo{Expand!}
 
-As mentioned earlier, the interaction parameter $J'$ originates from the neighbor $\Zthree$ Rabi models boson interaction. Hence, if we want to obtain the chiral Potts model, we have to obtain a chiral boson-hopping term. The full technical discussion of this topic is outside of this paper's scope. However, we want to mention that recently a way to obtain the chiral boson hopping was proposed in \cite{bermudez_synthetic_2011}, and we assume that it could be adapted to our system.
-
-For the Potts system a certain generalization of the Jordan-Wigner transformation exists. It is called the Fradkin-Kadanoff (FK) transformation \cite{fradkin_disorder_1980}, and it allows us to rewrite $X_j, \, Z_j$ in terms of parafermions:
+\todo{Mention that the relation is the same as for the majoranas and Ising model} For the Potts model a generalization of the Jordan-Wigner transformation exists. It is called the Fradkin-Kadanoff (FK) transformation \cite{fradkin_disorder_1980}, and it allows us to rewrite $X_j, \, Z_j$ in terms of parafermions:
 \begin{equation}
 \Gamma_j = \prod\limits_{k<j} Z_k X_j , \quad \Delta_j = \prod\limits_{k\le j} Z_k X_j.
 \end{equation}
 Here $\Gamma_j, \, \Delta_j$ are parafermion operators with a parafermion commutation relation: $\Gamma_j \Gamma_k = \omega^{\sgn(j-k)} \Gamma_k \Gamma_j, \, \Delta_j \Delta_k = \omega^{\sgn(j-k)} \Delta_k \Delta_j$, and finally $\Gamma_j \Delta_k = \omega^{\sgn(j-k)} \Delta_k \Gamma_j$.
 
-Using the FK transformation, it is easy to show that the Potts model is equivalent to a parafermion chain. The only problem is that FK transformation is not local. In terms of parafermion operators, the chiral Potts model Hamiltonian (\ref{chiral-potts-hamiltonian}) looks like 
-
-
+Using the FK transformation, it is easy to show that the Potts model is equivalent to a parafermion chain. The only problem is that FK transformation is not local. In terms of parafermion operators, the chiral Potts model Hamiltonian~\eqref{eq:chiral-potts-hamiltonian} looks like 
 \begin{equation}
 \begin{aligned}
     H_{\text{chPotts}} = &f' \sum \left( e^{i\phi'} \Gamma_j \Delta_j^{\dagger} + e^{-i\phi'} \Delta_j \Gamma_j^{\dagger}\right) \\
-    &+J' \sum \left(e^{i\theta'} \Delta_j \Gamma_{j+1}^{\dagger} + e^{-i\theta'} \Gamma_{j+1} \Delta_j^{\dagger}\right)
+    &+J' \sum \left(e^{i\theta'} \Delta_j \Gamma_{j+1}^{\dagger} + e^{-i\theta'} \Gamma_{j+1} \Delta_j^{\dagger}\right).
 \end{aligned}
 \end{equation}
 
-
-
-On the other hand, it is known that parafermion chain has a phase with a parafermion edge mode  \cite{fendley_parafermionic_2012}:
+On the other hand, it is well-known that parafermion chain host a topological phase with the parafermion edge modes  \cite{fendley_parafermionic_2012}:
 \begin{equation}
 \Gamma_{\text{edge}} = \Gamma_1 + \frac{f'}{J' \sin(3\theta')} \mathcal{O} + \dots
 \end{equation}
 
-Unfortunately, after the parafermion edge mode is not localized on the edged after FK transformation. As a result, we do not have an actual topological phase in the chiral Potts model. But we believe that it still holds an importance because it allows us to simulate a parafermion chain.
+However, the parafermion edge mode is not localized after FK transformation. As a result, we do not have an actual topological phase in the chiral Potts model. However, having the exact mapping between the parafermion chain and the Potts model allows us to simulate the parafermion physics.
 
 
 
 \section{Conclusion}
 \label{sec:conclusion}
 
-We have explored $\Zthree$-symmetric models, with a particular focus on the $\Zthree$ Rabi model and its variations. By employing a canonical transformation, we successfully derived the spectrum of these models, revealing that the three lowest eigenstates correspond to distinct threefold cat states, a feature interesting from several perspectives. We derived an analytical expression for the Wigner quasi-probability function of the threefold cat state and used it to better understand the structure of the cat states.
+We introduced a hierarchy of $\Zthree$-symmetric systems. In the qubit-boson ring, the $\Zthree$ symmetry appears as a discrete rotational symmetry, whereas in the Rabi model, a specific sector of the qubit-boson ring, the symmetry acts as an internal one. This internal symmetry also exists in the $\Zthree$ Potts model, which we construct by coupling multiple $\Zthree$ Rabi models.
 
-We also introduced a hierarchy of $\Zthree$-symmetric systems. In the qubit-boson ring, the $\Zthree$ symmetry appears as a discrete rotational symmetry, whereas in the Rabi model, a specific sector of the qubit-boson ring, the symmetry acts as an internal one. This internal symmetry also exists in the $\Zthree$ Potts model, which we constructed by coupling multiple $\Zthree$ Rabi models.
-
-Our main goal was to suggest a way towards an experimental realization of the $\Zthree$ Rabi and Potts models. We believe that the proposed superconducting circuit should be feasible to implement. However, this approach does not have to be restricted only to the superconducting circuit platform. For example, we believe that a similar strategy work for the spin-qubit systems. Though, this remains a topic for a future research.
+Our main goal was to suggest a way towards an experimental realization of the $\Zthree$ Rabi and Potts models. We believe that the proposed superconducting circuit is feasible. However, this approach does not have to be restricted only to the superconducting circuit platform. For example, we believe that a similar strategy work for the spin-qubit systems. Though, this remains a topic for a future research.
 
 More broadly, our work highlights the intriguing potential of $\Zn$-symmetric systems within condensed matter physics. These systems present a fertile ground for discovering novel quantum phenomena, many of which are yet to be fully understood or described. We believe that the further investigation into these models reveals new insights and advance our understanding of symmetry in quantum systems.
 
@@ -587,7 +577,7 @@ For completeness we summarise how the above derivation extends to a QB ring
 with an arbitrary $\Zthree$--symmetric interaction matrix~$A$.  The starting
 Hamiltonian is
 \begin{equation}
-\label{arbitary-interaction-hamiltonian}
+\label{eq:arbitary-interaction-hamiltonian}
   \begin{aligned}
     \hat H_{\text{gen}} &= \epsilon \sum_{j=1}^{3} \sigma_j^z
       + \Omega \sum_{j=1}^{3} \hat a_j^{\dagger} \hat a_j + \hat V_{\text{gen}},
@@ -600,7 +590,7 @@ with $A^{\dagger}=A$.  The same sequence of steps---momentum translation $S$,
 Fourier transform, and restriction to $\mathcal H_{\text{QB},1}$---again leads
 to the two--mode Hamiltonian\footnote{An additional basis change might be
 required to diagonalise the purely spin term.}
-\eqref{effective-rabi}, now with $gA$ replacing $g(Z+Z^{\dagger})$.  Hence any
+\eqref{eq:effective-rabi}, now with $gA$ replacing $g(Z+Z^{\dagger})$.  Hence any
 interaction matrix compatible with $\Zthree$ symmetry can be mapped onto the
 canonical Rabi model.  The parameter correspondence reads
 \begin{equation}
@@ -633,7 +623,7 @@ gives rise to a different Hermitian $A$ but follows exactly the same logic.
          \includegraphics[width=0.5\linewidth]{pics/capacitor_potential.pdf}
          %%\caption{ }
          \label{fig:second-harmonic-qubit-b}}
-    \caption{Second-harmonic qubit. a) The electric circuit of the second-harmonic qubit circuit. b) The capacitor potential (\ref{second-harmonic-qubit}) for $n_0 = 0.45 = 0.5 - 0.05 $. The red dots show the eigenenergies of the second-harmonic qubit.}
+    \caption{Second-harmonic qubit. a) The electric circuit of the second-harmonic qubit circuit. b) The capacitor potential~\eqref{eq:second-harmonic-qubit} for $n_0 = 0.45 = 0.5 - 0.05 $. The red dots show the eigenenergies of the second-harmonic qubit.}
     \label{fig:second-harmonic-qubit}
 \end{figure}
 
@@ -664,7 +654,7 @@ As a result, only the second harmonic is left.
 
 Consequently, we can construct a qubit based on the second-harmonic JJ (see Fig. \ref{fig:second-harmonic-qubit}). It is described by the Hamiltonian:
 \begin{equation}
-\label{second-harmonic-qubit}
+\label{eq:second-harmonic-qubit}
     \hat H = \frac{1}{2C_Q} (\hat n - n_0)^2 + 2 I_{Q,2} \cos(2\hat\phi)
 \end{equation}
 If we tune $n_0$ a bit off 1/2: $n_0 = 0.5 - \delta$, then the qubit Hamiltonian looks like:
@@ -673,7 +663,7 @@ If we tune $n_0$ a bit off 1/2: $n_0 = 0.5 - \delta$, then the qubit Hamiltonian
 \end{equation}
 Hence, we obtained the qubit Hamiltonian we wanted. Here we consider $\frac{1}{2C} \gg 2 E_{J,2}$ as usual for charge qubits.
 
-To conclude, the charge qubit we have in mind consists of a capacitor and the second-harmonic JJ. One can think of it as a certain generalization of a Cooper Pair Box qubit. In this appendix, we only briefly described its blueprint to give additional substance to the proposal in Sec. \ref{superconducting-implementation}.
+To conclude, the charge qubit we have in mind consists of a capacitor and the second-harmonic JJ. One can think of it as a certain generalization of a Cooper Pair Box qubit. In this appendix, we only briefly described its blueprint to give additional substance to the proposal in Sec.~\ref{sec:superconducting-implementation}.
 
 
 \section{Disorder in the superconducting implementation}
@@ -699,11 +689,11 @@ To conclude, the charge qubit we have in mind consists of a capacitor and the se
         %%\caption{}
         \includegraphics[width=0.37\linewidth]{pics/Spin_correlators_3.pdf}
          \label{fig:3rd-spin-correlator}}
-    \caption{Time dependence of the total spin excitation operator. To illustrate robustness of the Rabi model implementation with the respect of disorder (\ref{rabi-breaking-disorder}) we plotted $\langle S_z(t) \rangle$. The standard variance of the disorder $\Delta_j$ equals for plot a) 0.1; b) 0.3; c) 1.}
+    \caption{Time dependence of the total spin excitation operator. To illustrate robustness of the Rabi model implementation with the respect to the disorder~\eqref{eq:rabi-breaking-disorder} we plotted $\langle S_z(t) \rangle$. The standard variance of the disorder $\Delta_j$ equals for plot a) 0.1; b) 0.3; c) 1.}
     \label{fig:spin-excitation-plot}
 \end{figure*}
 
-First, while discussing the effect of the disorder on the qubit-boson ring (\ref{physical-hamiltonian}), we need to consider a term that breaks the conservation of the total excitation number of qubits $\hat S^z$. This conservation law is broken by the Zeeman terms being not perfectly aligned with $\hat z$ direction:
+First, while discussing the effect of the disorder on the qubit-boson ring~\eqref{eq:physical-hamiltonian}, we need to consider a term that breaks the conservation of the total excitation number of qubits $\hat S^z$. This conservation law is broken by the Zeeman terms being not perfectly aligned with $\hat z$ direction:
 \begin{equation}
     \hat H_{QB,\text{dis}} = \hat H_{QB} + \sum_{j=1}^3 \Delta_j \sigma_j^x.
 \end{equation}
@@ -720,7 +710,7 @@ As a result, we have $[\hat H_{QB,\text{dis}}, \hat S^z] \neq 0 $. Unfortunately
 
 Now, assuming that the total number of qubit excitations is conserved, we would like to investigate how the coordinate dependence of the parameter in the qubit-boson ring influences the resulting Rabi model. The spatial non-homogeneity obviously breaks the $\Zthree$ symmetry. However, we want to find the explicit symmetry-breaking term.
 \begin{equation}
-\label{rabi-breaking-disorder}
+\label{eq:rabi-breaking-disorder}
 \begin{aligned}
   \hat H_{QB}' &= \sum_j \epsilon_{j} \sigma_j^z + \sum_j \Omega_j \hat a^{\dagger}_j \hat a_j  \\
   &+ \sum_j g_{j,j+1} \left[\sigma_j^+ \sigma_{j+1}^- e^{i (\hat x_j - \hat x_{j+1})} +\text{h.c}\right]
